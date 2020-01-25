@@ -12,6 +12,7 @@ body {
     text-align:center;
     padding: 20px;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 .contentBox {
@@ -49,6 +50,7 @@ body {
     color: black;
     border-width: 0px;
     margin: 0;
+    cursor: default;
 }
 
 ::-webkit-scrollbar {
