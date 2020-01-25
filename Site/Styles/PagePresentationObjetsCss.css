@@ -1,0 +1,43 @@
+body {
+    margin: 0 !important;
+    padding: 0 40px;
+    background-color: black;
+}
+
+.presentationObjet {
+    display: inline-flex;
+    vertical-align:middle;
+    text-align:center;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.contentBox {
+    padding: 10px;
+    height: 50%;
+    background-color: white;
+}
+
+#listItems {
+    width: calc(100% - 20px);
+}
+
+#descriptionArea {
+    position: fixed;
+    bottom: 0px;
+    left: 40px;
+    max-height: 25%;
+    border-bottom: none;
+    width: calc(100% - 100px);
+}
+
+#descriptionField {
+    width: calc(100% - 4px);
+    height: calc(100% - 5px);
+    text-align: center;
+    background-color: white;
+    font-size: x-large;
+    font-family: sans-serif;
+    color: black;
+    border-width: 0px;
+}
