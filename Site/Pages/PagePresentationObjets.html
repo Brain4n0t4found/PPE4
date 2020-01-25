@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../Scripts/Jquery.js"></script>
+    <script src="../Scripts/PagePresentationObjetsScript.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles/PagePresentationObjetsCss.css">
+    <title>OuiPage</title>
+</head>
+<body>
+    <div class="contentBox" id="listItems">
+        <label class="presentationObjet" for="objet1" name="objet1">
+            <img src="../Content/fusil_a_pompe.png">
+        </label>
+        <input hidden id="objet1" value="Fusil à pompe, inflige de gros dégats" />
+
+        <label class="presentationObjet" for="objet2" name="objet2">
+            <img src="../Content/pistolet.png">
+        </label>
+        <input hidden id="objet2" value="Pistolet, arme de départ" />
+
+        <label class="presentationObjet" for="objet3" name="objet3">
+            <img src="../Content/couteau.png">
+        </label>
+        <input hidden id="objet3" value="Couteau, jamais à court de munitions" />
+
+        <label class="presentationObjet" for="objet4" name="objet4">
+            <img src="../Content/cartouche pistolet.png">
+        </label>
+        <input hidden id="objet4" value="Cartouche de pistolet, malheureusement devenue une douille après avoir été utilisée" />
+
+        <label class="presentationObjet" for="objet5" name="objet5">
+            <img src="../Content/Chargeur pistolet.png">
+        </label>
+        <input hidden id="objet5" value="Chargeur de pistolet, permet de refaire le plein de munitions du pistolet!" />
+
+        <label class="presentationObjet" for="objet6" name="objet6">
+            <img src="../Content/Pistolet V1.png">
+        </label>
+        <input hidden id="objet6" value="(Indev) Première version du pistolet modifié, chargeur à insérer à l'avant et laisse s'échapper les douilles par la bouche au dessus à l'avant du pistolet" />
+
+        <label class="presentationObjet" for="objet7" name="objet7">
+            <img src="../Content/Pistolet V2.png">
+        </label>
+        <input hidden id="objet7" value="(Indev) Deuxième version du pistolet modifié, poignée droite permettant d'y insérer directement le chargeur et laisse s'échapper les douilles au dessus vers l'arrière du pistolet" />
+    </div>
+    <div class="contentBox" id="descriptionArea">
+        <p id="descriptionField" aria-disabled="true">Ici sera décrit l'objet sur lequel vous passerez le curseur</p>
+    </div>
+</body>
+</html>
