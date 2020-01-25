@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
 body {
     margin: 0 !important;
     padding: 0 40px;
@@ -15,29 +17,53 @@ body {
 .contentBox {
     padding: 10px;
     height: 50%;
-    background-color: white;
 }
 
 #listItems {
     width: calc(100% - 20px);
+    background-image: url(../Content/Background.png);
+    margin-bottom: 30vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #descriptionArea {
     position: fixed;
     bottom: 0px;
     left: 40px;
-    max-height: 25%;
+    max-height: 25vh;
     border-bottom: none;
     width: calc(100% - 100px);
+    background-color: white;
+    overflow-y: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #descriptionField {
     width: calc(100% - 4px);
     height: calc(100% - 5px);
     text-align: center;
-    background-color: white;
-    font-size: x-large;
-    font-family: sans-serif;
+    font-size: 1.5em;
+    font-family: 'Roboto Mono';
     color: black;
     border-width: 0px;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+background: #ffffff; 
+}
+
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
 }

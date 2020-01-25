@@ -13,14 +13,11 @@ $(document).ready(function() {
         $("#descriptionField").text($("#" + $(this).attr("name")).val());
 
         // Changement couleur arrière-plan
-        $(this).css('background-color', 'grey');
+        $(this).css('background-color', 'white');
     });
 
     $(".presentationObjet").mouseleave(function() {
         // Changement couleur arrière-plan
-        $(this).css('background-color', 'white');
-
-        // Remplacement du champ de description par le texte par défaut
-        $("#descriptionField").text("Ici sera décrit l'objet sur lequel vous passerez le curseur");
+        $(this).css('background-color', 'transparent');
     });
 });
