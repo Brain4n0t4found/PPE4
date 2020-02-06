@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public string Name { get; set; }
-    public int LifeAmount { get; set; }
+    public int Health { get; set; }
     public int Damages { get; set; }
 
-    public EnemyScript(string name, int lifeAmount, int damages)
+    public void Initialize(string name, int health, int damages)
     {
-        this.Name = name;
-        this.LifeAmount = lifeAmount;
-        this.Damages = damages;
+        Name = name;
+        Health = health;
+        Damages = damages;
     }
 }
