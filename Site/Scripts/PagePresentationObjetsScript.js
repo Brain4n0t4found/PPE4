@@ -13,7 +13,7 @@ $(document).ready(function() {
         $("#descriptionField").text($("#" + $(this).attr("name")).val());
 
         // Changement couleur arrière-plan
-        $(this).css('background-color', 'white');
+        $(this).css('background-color', 'lightgrey');
     });
 
     $(".presentationObjet").mouseleave(function() {
