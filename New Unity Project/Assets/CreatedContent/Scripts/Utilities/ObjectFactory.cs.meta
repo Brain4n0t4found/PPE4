@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 8b76d0848c4ed3549985b5e79a94f51f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - enemyPreFab: {fileID: 8829679812315540142, guid: b01b7e5ee96179742a0c9732194405bd,
+      type: 3}
+  - mainCharacterPreFab: {fileID: 5715656896335702827, guid: 0f3437d5b0859ad4bb3e187f243ccd54,
+      type: 3}
+  - buildingPreFab: {instanceID: 0}
+  - floorPrefab: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
