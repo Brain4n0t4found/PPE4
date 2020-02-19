@@ -8,6 +8,10 @@ public class FloorScript : MonoBehaviour
     public EnemyScript Enemy { get; set; }  // Réaliser le GameObject de l'ennemi
     public GameObject Container { get; set; }  // Réaliser le GameObject du coffre
 
+    /// <summary>
+    /// Remplit les valeurs du script
+    /// </summary>
+    /// <param name="floorNumber"></param>
     public void Initialize(int floorNumber)
     {
         this.FloorNumber = floorNumber;
