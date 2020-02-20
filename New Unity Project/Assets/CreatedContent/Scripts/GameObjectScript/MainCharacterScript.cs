@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿// Using System
+using System.Collections;
 using System.Collections.Generic;
+
+// Using Unity
 using UnityEngine;
 
 public class MainCharacterScript : MonoBehaviour
 {
-    public string Name { get; private set; }
+    public string Name { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
     public WeaponClass EquippedWeapon { get; set; }
@@ -47,5 +50,7 @@ public class MainCharacterScript : MonoBehaviour
             if (WeaponList.Count > 0)
                 EquippedWeapon = WeaponList[0];
         }
+
+        //GameObject.FindGameObjectWithTag("Building").GetComponent<BuildingScript>().FloorList[0].EnemyScript.Test();
     }
 }

@@ -1,45 +1,49 @@
 ﻿using System;
 using System.IO;
 using System.Text;
+using System.Collections.Generic;
 
 using UnityEngine;
+
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 public class ObjectFactory : MonoBehaviour
 {
-    protected static ObjectFactory instance; // Nécessaire
-    public GameObject enemyPreFab;
-    public GameObject mainCharacterPreFab;
-    public GameObject buildingPreFab;
-    public GameObject floorPreFab;
-    public GameObject weaponPreFab;
-    public StateClass stateScript;
-    public EquipmentObjectClass equipmentObjectScript;
+    protected static ObjectFactory Instance; // Nécessaire
+    public GameObject EnemyPreFab;
+    public GameObject MainCharacterPreFab;
+    public GameObject BuildingPreFab;
+    public GameObject FloorPreFab;
+    public GameObject WeaponPreFab;
+    public GameObject ContainerPreFab;
+    public StateClass StateScript;
+    public EquipmentObjectClass EquipmentObjectScript;
 
-    private GetDataFromJson getDataFromJsonScript;
+    private GetDataFromJson GetDataFromJsonScript;
 
     private string JsonContent { get; set; }
 
     void Start()
     {
-        instance = this;
-        getDataFromJsonScript = gameObject.GetComponent<GetDataFromJson>();
+        Instance = this;
+        GetDataFromJsonScript = gameObject.GetComponent<GetDataFromJson>();
 
-        getDataFromJsonScript.SearchDataFromJsonRessources();
+        GetDataFromJsonScript.SearchDataFromJsonRessources();
     }
 
     #region Creation d'objets
 
     /// <summary>
-    /// Crée un objet Enemy et renvoie son script
+    /// Crée un objet EnemyScript et renvoie son script
     /// </summary>
     /// <param name="name"></param>
     /// <param name="health"></param>
     /// <param name="damages"></param>
-    /// <returns>Script de l'Enemy créé</returns>
+    /// <returns>Script de l'EnemyScript créé</returns>
     public static EnemyScript CreateEnemy(string name, int health, int damages)
     {
-        EnemyScript enemy = Instantiate(instance.enemyPreFab, Vector3.zero, Quaternion.identity).GetComponent<EnemyScript>();
+        EnemyScript enemy = Instantiate(Instance.EnemyPreFab, Vector3.zero, Quaternion.identity).GetComponent<EnemyScript>();
         enemy.Initialize(name, health, damages);
         return enemy;
     }
@@ -53,7 +57,7 @@ public class ObjectFactory : MonoBehaviour
     /// <returns>Script du MainCharacter créé</returns>
     public static MainCharacterScript CreateCharacter(string name, int health, int energyAmount)
     {
-        MainCharacterScript mainCharacter = Instantiate(instance.mainCharacterPreFab, Vector3.zero, Quaternion.identity).GetComponent<MainCharacterScript>();
+        MainCharacterScript mainCharacter = Instantiate(Instance.MainCharacterPreFab, Vector3.zero, Quaternion.identity).GetComponent<MainCharacterScript>();
         mainCharacter.Initialize(name, health, energyAmount);
         return mainCharacter;
     }
@@ -64,7 +68,7 @@ public class ObjectFactory : MonoBehaviour
     /// <returns>Script du Building créé</returns>
     public static BuildingScript CreateBuilding()
     {
-        BuildingScript building = Instantiate(instance.buildingPreFab, Vector3.zero, Quaternion.identity).GetComponent<BuildingScript>();
+        BuildingScript building = Instantiate(Instance.BuildingPreFab, Vector3.zero, Quaternion.identity).GetComponent<BuildingScript>();
         building.Initialize();
         return building;
     }
@@ -76,16 +80,16 @@ public class ObjectFactory : MonoBehaviour
     /// <returns>Script du Floor créé</returns>
     public static FloorScript CreateFloor(int floorNumber)
     {
-        FloorScript floor = Instantiate(instance.floorPreFab, Vector3.zero, Quaternion.identity).GetComponent<FloorScript>();
+        FloorScript floor = Instantiate(Instance.FloorPreFab, Vector3.zero, Quaternion.identity).GetComponent<FloorScript>();
         floor.Initialize(floorNumber);
         return floor;
     }
 
-    /*public static StateClass CreateState(string name)
+    public static ContainerScript CreateContainer(string name, int storageCapacity, List<EquipmentObjectClass> listEquipmentObjects, WeaponClass weapon)
     {
-        StateClass state = new StateClass();
-        return state;
-    }*/
-
+        ContainerScript container = Instantiate(Instance.ContainerPreFab, Vector3.zero, Quaternion.identity).GetComponent<ContainerScript>();
+        container.Initialize(name, storageCapacity, listEquipmentObjects, weapon);
+        return container;
+    }
     #endregion
 }

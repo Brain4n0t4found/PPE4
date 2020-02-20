@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class WeaponClass : MonoBehaviour
+public class WeaponScript : MonoBehaviour
 {
     public string Name { get; set; }
     public int Damages { get; set; }
@@ -13,8 +11,8 @@ public class WeaponClass : MonoBehaviour
     private GameObject character { get; set; }
 
     #region Constructors
-    public WeaponClass() { }
-    public WeaponClass(string name, int damages, int munitionsAmount)
+    public WeaponScript() { }
+    public WeaponScript(string name, int damages, int munitionsAmount)
     {
         this.Name = name;
         this.Damages = damages;
