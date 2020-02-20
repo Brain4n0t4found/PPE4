@@ -7,8 +7,19 @@ using UnityEngine;
 public class EquipmentObjectClass : MonoBehaviour
 {
     public string Name { get; set; }
-    public int DamageBoost { get; set; }
-    public int EnergyBoost { get; set; }
-    public int InstantLife { get; set; }
-    public int InstantEnergy { get; set; }
+
+    private GameObject character { get; set; }
+
+    #region Constructors
+    public EquipmentObjectClass() { }
+    public EquipmentObjectClass(string name)
+    {
+        this.Name = name;
+    }
+    #endregion
+
+    public void AttachToCharacter(GameObject character)
+    {
+        this.character = character;
+    }
 }
