@@ -10,11 +10,11 @@ public class MainCharacterScript : MonoBehaviour
     public string Name { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
-    public WeaponClass EquippedWeapon { get; set; }
+    public WeaponScript EquippedWeapon { get; set; }
 
     public List<EquipmentObjectClass> EquipmentObjects { get; set; }
     public List<StateClass> CharacterStates { get; set; }
-    public List<WeaponClass> WeaponList { get; set; }
+    public List<WeaponScript> WeaponList { get; set; }
 
     /// <summary>
     /// Remplit les valeurs du script
@@ -30,7 +30,7 @@ public class MainCharacterScript : MonoBehaviour
 
         EquipmentObjects = new List<EquipmentObjectClass>();
         CharacterStates = new List<StateClass>();
-        WeaponList = new List<WeaponClass>();
+        WeaponList = new List<WeaponScript>();
     }
 
     /// <summary>

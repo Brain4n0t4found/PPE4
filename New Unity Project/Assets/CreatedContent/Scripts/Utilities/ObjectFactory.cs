@@ -85,7 +85,7 @@ public class ObjectFactory : MonoBehaviour
         return floor;
     }
 
-    public static ContainerScript CreateContainer(string name, int storageCapacity, List<EquipmentObjectClass> listEquipmentObjects, WeaponClass weapon)
+    public static ContainerScript CreateContainer(string name, int storageCapacity, List<EquipmentObjectClass> listEquipmentObjects, WeaponScript weapon)
     {
         ContainerScript container = Instantiate(Instance.ContainerPreFab, Vector3.zero, Quaternion.identity).GetComponent<ContainerScript>();
         container.Initialize(name, storageCapacity, listEquipmentObjects, weapon);
