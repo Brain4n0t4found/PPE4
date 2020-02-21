@@ -7,8 +7,8 @@ using UnityEngine;
 public class FloorScript : MonoBehaviour
 {
     public int FloorNumber { get; set; }
-    public EnemyScript EnemyScript { get; set; }  // Réaliser le GameObject de l'ennemi
-    public GameObject Container { get; set; }  // Réaliser le GameObject du coffre
+    public EnemyScript EnemyScript { get; set; }
+    public ContainerScript Container { get; set; }
 
     /// <summary>
     /// Remplit les valeurs du script
@@ -19,6 +19,6 @@ public class FloorScript : MonoBehaviour
         this.FloorNumber = floorNumber;
 
         this.EnemyScript = ObjectFactory.CreateEnemy("trucmuche", 50, 25);
-        // TODO - Faire un script de génération pour un ennemi et un coffre
+        this.Container = ObjectFactory.CreateContainer("oui", 10, null, null);
     }
 }

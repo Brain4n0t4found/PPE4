@@ -27,9 +27,11 @@ public class ObjectFactory : MonoBehaviour
     void Start()
     {
         Instance = this;
-        GetDataFromJsonScript = gameObject.GetComponent<GetDataFromJson>();
+        /*GetDataFromJsonScript = gameObject.GetComponent<GetDataFromJson>();
 
-        GetDataFromJsonScript.SearchDataFromJsonRessources();
+        GetDataFromJsonScript.SearchDataFromJsonRessources();*/
+
+        CreateBuilding();
     }
 
     #region Creation d'objets
