@@ -33,6 +33,12 @@ public class MainCharacterScript : MonoBehaviour
         WeaponList = new List<WeaponScript>();
     }
 
+    // Permet au gameObject de ne pas être détruit lors du changement de scènes
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     /// <summary>
     /// Change l'arme actuellement équipée
     /// </summary>
