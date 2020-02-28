@@ -8,9 +8,12 @@ public class BuildingScript : MonoBehaviour
     public int FloorNumber { get; set; }
     public List<FloorScript> FloorList { get; set; }
 
+    /// <summary>
+    /// Remplit les valeurs du script
+    /// </summary>
     public void Initialize()
     {
-        FloorNumber = new System.Random().Next(1, 3);  // Création d'un nombre d'étages aléatoire
+        FloorNumber = new System.Random().Next(1, 4);  // Création d'un nombre d'étages aléatoire
 
         // Création et remplissage de la liste d'étages
         FloorList = new List<FloorScript>();
