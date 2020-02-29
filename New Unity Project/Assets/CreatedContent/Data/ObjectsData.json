@@ -1,25 +1,61 @@
 {
   "building": {
-    "1height": {
-      "policeStation": {},
-      "school": {},
-      "mall": {},
-      "pharmacy": {},
-      "grocery": {},
-      "house": {},
-      "apartmentBuilding": {},
-      "company": {},
-      "station": {},
-      "hotel": {}
-    },
-    "2height": {},
+    "1height": [
+      {
+        "Name": "École",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Supermarché",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Pharmacie",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Épicerie",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Maison",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Immeuble",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Entreprise",
+        "FloorNumber": 1
+      },
+      {
+        "Name": "Hôtel",
+        "FloorNumber": 1
+      }
+    ],
+    "2height": [
+      {
+        "Same": "Commissariat",
+        "FloorNumber": 2
+      }
+    ],
     "3height": {}
   },
-  "furniture": {
-    "chest": {},
-    "closet": {},
-    "backpack": {}
-  },
+  "furniture": [
+    {
+      "Name": "Coffre",
+      "StorageCapacity": 15
+    },
+    {
+      "Name": "Armoire",
+      "StorageCapacity": 10
+    },
+    {
+      "Name": "Sac",
+      "StorageCapacity": 5
+    }
+  ],
   "characters": [
     {
       "health": "60",
@@ -32,51 +68,160 @@
       "name": "Test"
     }
   ],
-  "weapon": {
-    "knife": {},
-    "pistol": {},
-    "shotgun": {},
-    "assaultRifle": {},
-    "sniper": {},
-    "flameThrower": {}
-  },
-  "item": {
-    "tinCan": {},
-    "chocolateBar": {},
-    "water": {},
-    "energyDrink": {},
-    "shotgunAmmo": {},
-    "assaultRifleAmmo": {},
-    "sniperAmmo": {},
-    "fuel": {},
-    "key": {},
-    "paracetamol": {},
-    "antivirus": {},
-    "antidote": {},
-    "helmet": {},
-    "armorChest": {},
-    "armorLegs": {},
-    "armorFeet": {},
-    "lock": {}
-  },
-  "monster": {
-    "zombie": {},
-    "hunter": {},
-    "revenant": {},
-    "toxicZombie": {},
-    "dogZombie": {}
-  },
-  "boss": {
-    "tyran": {},
-    "ustanak": {},
-    "ogre": {},
-    "chainsawZombie": {}
-  },
+  "weapon": [
+    {
+      "Name": "Couteau",
+      "Damages": 1,
+      "MunitionAmount": 1
+    },
+    {
+      "Name": "Pistolet",
+      "Damages": 1,
+      "MunitionAmount": 1
+    },
+    {
+      "Name": "Fusil à pompe",
+      "Damages": 1,
+      "MunitionAmount": 1
+    },
+    {
+      "Name": "Fusil d'assaut",
+      "Damages": 1,
+      "MunitionAmount": 1
+    },
+    {
+      "Name": "Sniper",
+      "Damages": 1,
+      "MunitionAmount": 1
+    },
+    {
+      "Name": "Lance-flamme",
+      "Damages": 1,
+      "MunitionAmount": 1
+    }
+  ],
+  "item": [
+    {
+      "Name": "Cannette"
+    },
+    {
+      "Name": "Barre de chocolat"
+    },
+    {
+      "Name": "Bouteille d'eau"
+    },
+    {
+      "Name": "Boisson énergisante"
+    },
+    {
+      "Name": "Munitions de fusil à pompe"
+    },
+    {
+      "Name": "Munitions de fusil d'assaut"
+    },
+    {
+      "Name": "Munitions de sniper"
+    },
+    {
+      "Name": "Carburant pour lance-flamme"
+    },
+    {
+      "Name": "Clé"
+    },
+    {
+      "Name": "Paracétamol"
+    },
+    {
+      "Name": "Antibactérien"
+    },
+    {
+      "Name": "Antidote"
+    },
+    {
+      "Name": "Casque"
+    },
+    {
+      "Name": "Plastron"
+    },
+    {
+      "Name": "Jambières"
+    },
+    {
+      "Name": "Bottes"
+    },
+    {
+      "Name": "Cadenas"
+    }
+  ],
+  "monster": [
+    {
+      "Name": "Zombie",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Hunter",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Revenant",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Zombie toxique",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Chien zombie",
+      "Health": 1,
+      "Damages": 1
+    }
+  ],
+  "boss": [
+    {
+      "Name": "Tyran",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Ustanak",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Ogre",
+      "Health": 1,
+      "Damages": 1
+    },
+    {
+      "Name": "Zombie tronçonneuse",
+      "Health": 1,
+      "Damages": 1
+    }
+  ],
   "status": {
-    "poisoned": {},
-    "headache": {},
-    "infected": {},
-    "tired": {},
-    "burned": {}
+    "poisoned": {
+      "Name": "Empoisonné",
+      "DamageRate": 1
+    },
+    "headache": {
+      "Name": "Douleur crânienne",
+      "DamageRate": 1
+    },
+    "infected": {
+      "Name": "Infecté",
+      "DamageRate": 1
+    },
+    "tired": {
+      "Name": "Fatigué",
+      "DamageRate": 1
+    },
+    "burned": {
+      "Name": "Brûlé",
+      "DamageRate": 1
+    }
   }
 }

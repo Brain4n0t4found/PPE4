@@ -42,10 +42,10 @@ public class GetDataFromJson
     /// <returns>List<typeparamref name="T"/></returns>
     public List<T> SearchDataFromJsonRessources<T>(string valueToSearch)
     {
-        // Récupère les données JSON dans un objet JSON
+        // Récupère les données du fichier JSON dans un objet JSON
         JObject jObject = JObject.Parse(JsonContent);
 
-        // Récupère l'objet demandé
+        // Récupère et renvoie l'objet demandé
         return JsonConvert.DeserializeObject<List<T>>(jObject[valueToSearch].ToString());
     }
 }
