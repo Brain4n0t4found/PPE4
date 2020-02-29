@@ -1,77 +1,82 @@
 {
-    "building": {
-        "1height": {
-            "policeStation": {},
-            "school": {},
-            "mall": {},
-            "pharmacy": {},
-            "grocery": {},
-            "house": {},
-            "apartmentBuilding": {},
-            "company": {},
-            "station": {},
-            "hotel": {}
-        },
-        "2height": {},
-        "3height": {}
+  "building": {
+    "1height": {
+      "policeStation": {},
+      "school": {},
+      "mall": {},
+      "pharmacy": {},
+      "grocery": {},
+      "house": {},
+      "apartmentBuilding": {},
+      "company": {},
+      "station": {},
+      "hotel": {}
     },
-    "furniture": {
-        "chest": {},
-        "closet": {},
-        "backpack": {}
+    "2height": {},
+    "3height": {}
+  },
+  "furniture": {
+    "chest": {},
+    "closet": {},
+    "backpack": {}
+  },
+  "characters": [
+    {
+      "health": "60",
+      "energy": "50",
+      "name": "John"
     },
-    "character": {
-        "john": {
-            "health": "60",
-            "energy": "50",
-            "name": "John"
-        }
-    },
-    "weapon": {
-        "knife": {},
-        "pistol": {},
-        "shotgun": {},
-        "assaultRifle": {},
-        "sniper": {},
-        "flameThrower": {}
-    },
-    "item": {
-        "tinCan": {},
-        "chocolateBar": {},
-        "water": {},
-        "energyDrink": {},
-        "shotgunAmmo": {},
-        "assaultRifleAmmo": {},
-        "sniperAmmo": {},
-        "fuel": {},
-        "key": {},
-        "paracetamol": {},
-        "antivirus": {},
-        "antidote": {},
-        "helmet": {},
-        "armorChest": {},
-        "armorLegs": {},
-        "armorFeet": {},
-        "lock": {}
-    },
-    "monster": {
-        "zombie": {},
-        "hunter": {},
-        "revenant": {},
-        "toxicZombie": {},
-        "dogZombie": {}
-    },
-    "boss": {
-        "tyran": {},
-        "ustanak": {},
-        "ogre": {},
-        "chainsawZombie": {}
-    },
-    "status": {
-        "poisoned": {},
-        "headache": {},
-        "infected": {},
-        "tired": {},
-        "burned": {}
+    {
+      "health": "100",
+      "energy": "30",
+      "name": "Test"
     }
+  ],
+  "weapon": {
+    "knife": {},
+    "pistol": {},
+    "shotgun": {},
+    "assaultRifle": {},
+    "sniper": {},
+    "flameThrower": {}
+  },
+  "item": {
+    "tinCan": {},
+    "chocolateBar": {},
+    "water": {},
+    "energyDrink": {},
+    "shotgunAmmo": {},
+    "assaultRifleAmmo": {},
+    "sniperAmmo": {},
+    "fuel": {},
+    "key": {},
+    "paracetamol": {},
+    "antivirus": {},
+    "antidote": {},
+    "helmet": {},
+    "armorChest": {},
+    "armorLegs": {},
+    "armorFeet": {},
+    "lock": {}
+  },
+  "monster": {
+    "zombie": {},
+    "hunter": {},
+    "revenant": {},
+    "toxicZombie": {},
+    "dogZombie": {}
+  },
+  "boss": {
+    "tyran": {},
+    "ustanak": {},
+    "ogre": {},
+    "chainsawZombie": {}
+  },
+  "status": {
+    "poisoned": {},
+    "headache": {},
+    "infected": {},
+    "tired": {},
+    "burned": {}
+  }
 }

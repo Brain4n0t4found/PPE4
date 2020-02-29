@@ -4,17 +4,48 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-public class GetDataFromJson : Component
+public class GetDataFromJson
 {
-    private string JsonContent = File.ReadAllText("ObjectsData.json");
+    #region properties
+    public string JsonContent { get; private set; }
 
-    public void SearchDataFromJsonRessources()
+    private readonly string pathToJsonData = "Assets/CreatedContent/Data/ObjectsData.json";
+    #endregion
+
+    #region Constructor
+    public GetDataFromJson()
     {
-        Debug.Log(JsonContent);
-        JObject o = JObject.Parse(JsonContent);
-        MainCharacterScript character = o.SelectToken("Assets/Data/character.john").Value<MainCharacterScript>();
-        Debug.Log(character.Name);
+        setJsonContent();
+    }
+    #endregion
+
+    /// <summary>
+    /// Attribution des ressources JSON à JsonContent
+    /// </summary>
+    public void setJsonContent()
+    {
+        // Crée un reader à partir du chemin vers le fichier de ressources du projet
+        StreamReader jsonReader = new StreamReader(pathToJsonData);
+
+        // Applique le contenu du reader à JsonContent
+        JsonContent = jsonReader.ReadToEnd();
+    }
+
+    /// <summary>
+    /// Renvoie une List<> des données JSON de l'objet/array demandé
+    /// </summary>
+    /// <typeparam name="T">Classe des objets JSON</typeparam>
+    /// <param name="valueToSearch"></param>
+    /// <returns>List<typeparamref name="T"/></returns>
+    public List<T> SearchDataFromJsonRessources<T>(string valueToSearch)
+    {
+        // Récupère les données JSON dans un objet JSON
+        JObject jObject = JObject.Parse(JsonContent);
+
+        // Récupère l'objet demandé
+        return JsonConvert.DeserializeObject<List<T>>(jObject[valueToSearch].ToString());
     }
 }

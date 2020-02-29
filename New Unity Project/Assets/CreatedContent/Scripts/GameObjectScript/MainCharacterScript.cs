@@ -56,7 +56,5 @@ public class MainCharacterScript : MonoBehaviour
             if (WeaponList.Count > 0)
                 EquippedWeapon = WeaponList[0];
         }
-
-        //GameObject.FindGameObjectWithTag("Building").GetComponent<BuildingScript>().FloorList[0].EnemyScript.Test();
     }
 }

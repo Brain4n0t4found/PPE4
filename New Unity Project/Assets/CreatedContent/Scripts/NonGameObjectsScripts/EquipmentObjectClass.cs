@@ -10,6 +10,7 @@ public class EquipmentObjectClass : MonoBehaviour
 
     private GameObject character { get; set; }
 
+
     #region Constructors
     public EquipmentObjectClass() { }
     public EquipmentObjectClass(string name)

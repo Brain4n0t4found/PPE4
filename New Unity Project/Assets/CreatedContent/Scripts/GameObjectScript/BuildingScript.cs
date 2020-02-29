@@ -13,7 +13,7 @@ public class BuildingScript : MonoBehaviour
     /// </summary>
     public void Initialize()
     {
-        FloorNumber = new System.Random().Next(1, 4);  // Création d'un nombre d'étages aléatoire
+        FloorNumber = 2; //new System.Random().Next(1, 4);  // Création d'un nombre d'étages aléatoire
 
         // Création et remplissage de la liste d'étages
         FloorList = new List<FloorScript>();

@@ -1,10 +1,13 @@
-﻿using System;
+﻿// Using System
+using System;
 using System.IO;
 using System.Text;
 using System.Collections.Generic;
 
+// Using Unity
 using UnityEngine;
 
+// Using packages
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -27,11 +30,18 @@ public class ObjectFactory : MonoBehaviour
     void Start()
     {
         Instance = this;
-        /*GetDataFromJsonScript = gameObject.GetComponent<GetDataFromJson>();
 
-        GetDataFromJsonScript.SearchDataFromJsonRessources();*/
+        // Création de l'objet de récupération JSON
+        GetDataFromJsonScript = new GetDataFromJson();
 
-        CreateBuilding();
+        // Récupération de la liste de charactères dans le fichier des ressources du jeu
+        List<MainCharacterModel> listCharacters = GetDataFromJsonScript.SearchDataFromJsonRessources<MainCharacterModel>("characters");
+
+        // Création du personnage
+        CreateCharacter(listCharacters[0].Name, listCharacters[0].Health, listCharacters[0].EnergyAmount);
+
+        // Log pour test
+        Debug.Log(GameObject.FindGameObjectWithTag("Character").GetComponent<MainCharacterScript>().Name);
     }
 
     #region Creation d'objets
