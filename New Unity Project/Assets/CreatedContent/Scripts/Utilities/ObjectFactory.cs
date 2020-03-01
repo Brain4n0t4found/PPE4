@@ -14,8 +14,6 @@ public class ObjectFactory : MonoBehaviour
     public GameObject FloorPreFab;
     public GameObject WeaponPreFab;
     public GameObject ContainerPreFab;
-    public GameObject StatePrefab;
-    public GameObject EquipmentObjectPrefab;
 
     private static MainCharacterScript mainCharacter;
     private GetDataFromJson GetDataFromJsonScript;
@@ -128,7 +126,7 @@ public class ObjectFactory : MonoBehaviour
     /// <returns>Script de l'EquipmentObject</returns>
     public static EquipmentObjectClass CreateEquipmentObject(string name)
     {
-        EquipmentObjectClass equipmentObject = Instantiate(Instance.EquipmentObjectPrefab).GetComponent<EquipmentObjectClass>();
+        EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
         equipmentObject.Initialize(name);
 
         if (mainCharacter != null)
@@ -137,6 +135,14 @@ public class ObjectFactory : MonoBehaviour
         }
 
         return equipmentObject;
+    }
+
+    public static StateClass CreateStateObject(string name, int damageRate, GameObject entityAttachedTo)
+    {
+        StateClass state = new StateClass();
+        state.Initialize(name, damageRate, entityAttachedTo);
+
+
     }
     #endregion
 }

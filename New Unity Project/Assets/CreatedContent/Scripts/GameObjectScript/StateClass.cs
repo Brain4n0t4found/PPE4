@@ -5,7 +5,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class StateClass : MonoBehaviour
+public class StateClass
 {
     #region Properties
     public string Name { get; set; }

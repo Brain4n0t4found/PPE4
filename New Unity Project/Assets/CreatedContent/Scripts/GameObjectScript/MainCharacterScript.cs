@@ -80,7 +80,7 @@ public class MainCharacterScript : MonoBehaviour
         {
             // Si le personnage possède une clé
             EquipmentObjects.Remove(potentialKey);
-            Destroy(potentialKey.gameObject);
+            //Destroy(potentialKey.gameObject);
             return true;
         }
         else

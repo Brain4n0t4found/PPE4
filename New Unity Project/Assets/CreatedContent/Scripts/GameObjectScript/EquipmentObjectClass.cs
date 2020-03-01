@@ -1,11 +1,9 @@
-﻿// Using System
-using System;
+﻿using System;
 
-// Using Unity
 using UnityEngine;
 
 [Serializable]
-public class EquipmentObjectClass : MonoBehaviour
+public class EquipmentObjectClass
 {
     #region Properties
     public string Name { get; set; }
