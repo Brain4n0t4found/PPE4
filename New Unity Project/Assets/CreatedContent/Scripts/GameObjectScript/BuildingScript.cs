@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿// Using System
 using System.Collections.Generic;
+
+// USing Unity
 using UnityEngine;
 
 public class BuildingScript : MonoBehaviour
 {
+    #region properties
     public string Name { get; set; }
     public int FloorNumber { get; set; }
     public List<FloorScript> FloorList { get; set; }
+    #endregion
 
+    #region Constructor
     /// <summary>
     /// Remplit les valeurs du script
     /// </summary>
@@ -22,4 +27,5 @@ public class BuildingScript : MonoBehaviour
             FloorList.Add(ObjectFactory.CreateFloor(i));
         }
     }
+    #endregion
 }

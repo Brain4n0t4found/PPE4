@@ -1,13 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Using Unity
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    #region Properties
     public string Name { get; set; }
     public int Health { get; set; }
     public int Damages { get; set; }
+    #endregion
 
+    #region Constructor
     /// <summary>
     /// Remplit les valeurs du script
     /// </summary>
@@ -20,4 +22,5 @@ public class EnemyScript : MonoBehaviour
         Health = health;
         Damages = damages;
     }
+    #endregion
 }

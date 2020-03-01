@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Using Unity
 using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
+    #region Properties
     public string Name { get; set; }
     public int Damages { get; set; }
     public int MunitionAmount { get; set; }
 
     private GameObject character { get; set; }
+    #endregion
 
-    #region Constructors
-    public WeaponScript() { }
-    public WeaponScript(string name, int damages, int munitionsAmount)
+    #region Constructor
+    public void Initialize(string name, int damages, int munitionsAmount)
     {
         this.Name = name;
         this.Damages = damages;
@@ -20,8 +20,10 @@ public class WeaponScript : MonoBehaviour
     }
     #endregion
 
+    #region Functions
     public void AttachToCharacter(GameObject character)
     {
         this.character = character;
     }
+    #endregion
 }

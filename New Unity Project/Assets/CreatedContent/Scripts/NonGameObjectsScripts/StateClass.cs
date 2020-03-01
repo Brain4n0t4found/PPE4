@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿// Using System
+using System;
+
+// Using Unity
 using UnityEngine;
 
 [Serializable]
 public class StateClass : MonoBehaviour
 {
+    #region Properties
     public string Name { get; set; }
     public int DamageRate { get; set; }
 
     private GameObject EntityAttachedTo { get; set; }
     private MainCharacterScript MainCharacterScript { get; set; }
     private EnemyScript EnemyScript { get; set; }
+    #endregion
 
-    #region Constructors
-    public StateClass() { }
-    public StateClass(string name, int damageRate, GameObject entityAttachedTo)
+    #region Constructor
+    public void Initialize(string name, int damageRate, GameObject entityAttachedTo)
     {
         this.Name = name;
         this.DamageRate = damageRate;
@@ -32,6 +34,7 @@ public class StateClass : MonoBehaviour
     }
     #endregion
 
+    #region Functions
     public void ApplyDamages()
     {
         if (MainCharacterScript != null)
@@ -43,4 +46,5 @@ public class StateClass : MonoBehaviour
             EnemyScript.Health -= DamageRate;
         }
     }
+    #endregion
 }

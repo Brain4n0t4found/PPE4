@@ -1,18 +1,12 @@
 ﻿// Using System
-using System;
-using System.IO;
-using System.Text;
 using System.Collections.Generic;
 
 // Using Unity
 using UnityEngine;
 
-// Using packages
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
 public class ObjectFactory : MonoBehaviour
 {
+    #region Properties
     protected static ObjectFactory Instance; // Nécessaire
     public GameObject EnemyPreFab;
     public GameObject MainCharacterPreFab;
@@ -24,9 +18,9 @@ public class ObjectFactory : MonoBehaviour
     public EquipmentObjectClass EquipmentObjectScript;
 
     private GetDataFromJson GetDataFromJsonScript;
+    #endregion
 
-    private string JsonContent { get; set; }
-
+    #region Unity Functions
     void Start()
     {
         Instance = this;
@@ -43,6 +37,7 @@ public class ObjectFactory : MonoBehaviour
         // Log pour test
         Debug.Log(GameObject.FindGameObjectWithTag("Character").GetComponent<MainCharacterScript>().Name);
     }
+    #endregion
 
     #region Creation d'objets
 

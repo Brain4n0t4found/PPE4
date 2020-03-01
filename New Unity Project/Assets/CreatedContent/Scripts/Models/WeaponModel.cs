@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// Using System
+using System;
 
 [Serializable]
 public class WeaponModel
 {
+    #region Properties
     public string Name { get; set; }
     public int Damages { get; set; }
     public int MunitionAmount { get; set; }
+    #endregion
 
+    #region Constructors
     public WeaponModel() { }
     public WeaponModel(string name, int damages, int munitionAmount)
     {
@@ -17,4 +18,5 @@ public class WeaponModel
         this.Damages = damages;
         this.MunitionAmount = munitionAmount;
     }
+    #endregion
 }

@@ -1,9 +1,8 @@
-﻿using System.IO;
-using System.Collections;
+﻿// Using System
+using System.IO;
 using System.Collections.Generic;
 
-using UnityEngine;
-
+// Using packages
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -22,6 +21,7 @@ public class GetDataFromJson
     }
     #endregion
 
+    #region Functions
     /// <summary>
     /// Attribution des ressources JSON à JsonContent
     /// </summary>
@@ -48,4 +48,5 @@ public class GetDataFromJson
         // Récupère et renvoie l'objet demandé
         return JsonConvert.DeserializeObject<List<T>>(jObject[valueToSearch].ToString());
     }
+    #endregion
 }

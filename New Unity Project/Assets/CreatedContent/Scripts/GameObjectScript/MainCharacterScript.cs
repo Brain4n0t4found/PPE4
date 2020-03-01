@@ -1,6 +1,4 @@
 ﻿// Using System
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +7,7 @@ using UnityEngine;
 
 public class MainCharacterScript : MonoBehaviour
 {
+    #region Properties
     public string Name { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
@@ -17,7 +16,9 @@ public class MainCharacterScript : MonoBehaviour
     public List<EquipmentObjectClass> EquipmentObjects { get; set; }
     public List<StateClass> CharacterStates { get; set; }
     public List<WeaponScript> WeaponList { get; set; }
+    #endregion
 
+    #region Constructor
     /// <summary>
     /// Remplit les valeurs du script
     /// </summary>
@@ -34,13 +35,17 @@ public class MainCharacterScript : MonoBehaviour
         CharacterStates = new List<StateClass>();
         WeaponList = new List<WeaponScript>();
     }
+    #endregion
 
+    #region Unity Functions
     // Permet au gameObject de ne pas être détruit lors du changement de scènes
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
+    #endregion
 
+    #region Functions
     /// <summary>
     /// Change l'arme actuellement équipée
     /// </summary>
@@ -92,4 +97,5 @@ public class MainCharacterScript : MonoBehaviour
             ? false  // Si le personnage est affecté par l'état "fatigué"
             : true;  // Sinon
     }
+    #endregion
 }

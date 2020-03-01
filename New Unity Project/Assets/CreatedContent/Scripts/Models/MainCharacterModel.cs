@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// Using System
+using System;
 
 [Serializable]
 public class MainCharacterModel
 {
+    #region Properties
     public string Name { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
+    #endregion
 
+    #region Constructors
     public MainCharacterModel() { }
     public MainCharacterModel(string name, int health, int energyAmount)
     {
@@ -17,4 +18,5 @@ public class MainCharacterModel
         this.Health = health;
         this.EnergyAmount = energyAmount;
     }
+    #endregion
 }
