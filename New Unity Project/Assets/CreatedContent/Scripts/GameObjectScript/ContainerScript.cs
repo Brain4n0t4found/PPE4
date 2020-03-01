@@ -9,8 +9,6 @@ public class ContainerScript : MonoBehaviour
     public List<EquipmentObjectClass> ListEquipmentObjects { get; set; }
     public WeaponScript Weapon { get; set; }
 
-    public static string Test { get; set; }
-
     public void Initialize(string name, int storageCapacity, List<EquipmentObjectClass> listEquipmentObjects, WeaponScript weapon)
     {
         this.Name = name;
