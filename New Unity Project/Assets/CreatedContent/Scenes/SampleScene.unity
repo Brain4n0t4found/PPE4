@@ -120,24 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &633543148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6356118163963780700, guid: 4ebf1834bd60af44aa7b32ccc1644d77,
-    type: 3}
-  m_PrefabInstance: {fileID: 1036930432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &633543149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633543148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1533480ade5f00a44a1f0c7e6cc9ce17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1036930432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -289,5 +271,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2883450989575021269, guid: 1a4c0a030a9723242ac4f22779f2f811,
+        type: 3}
+      propertyPath: EquipmentObjectScript
+      value: 
+      objectReference: {fileID: 1653367827944736951, guid: 2edb2124dfc5fad4da2cc291ae733c5a,
+        type: 3}
+    - target: {fileID: 2883450989575021269, guid: 1a4c0a030a9723242ac4f22779f2f811,
+        type: 3}
+      propertyPath: StateScript
+      value: 
+      objectReference: {fileID: 2897568304789683907, guid: f8a18329c8f20f24e9f10b0bd1f0e188,
+        type: 3}
+    - target: {fileID: 2883450989575021269, guid: 1a4c0a030a9723242ac4f22779f2f811,
+        type: 3}
+      propertyPath: EquipmentObjectPrefab
+      value: 
+      objectReference: {fileID: 3951904640029967624, guid: ec0771e2f5ca8fe489769d86e517a794,
+        type: 3}
+    - target: {fileID: 2883450989575021269, guid: 1a4c0a030a9723242ac4f22779f2f811,
+        type: 3}
+      propertyPath: StatePrefab
+      value: 
+      objectReference: {fileID: 9177062444714407930, guid: 31d77ff25e843314292607982a0c2420,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a4c0a030a9723242ac4f22779f2f811, type: 3}

@@ -14,9 +14,10 @@ public class ObjectFactory : MonoBehaviour
     public GameObject FloorPreFab;
     public GameObject WeaponPreFab;
     public GameObject ContainerPreFab;
-    public StateClass StateScript;
-    public EquipmentObjectClass EquipmentObjectScript;
+    public GameObject StatePrefab;
+    public GameObject EquipmentObjectPrefab;
 
+    private static MainCharacterScript mainCharacter;
     private GetDataFromJson GetDataFromJsonScript;
     #endregion
 
@@ -32,15 +33,28 @@ public class ObjectFactory : MonoBehaviour
         List<MainCharacterModel> listCharacters = GetDataFromJsonScript.SearchDataFromJsonRessources<MainCharacterModel>("characters");
 
         // Création du personnage
-        CreateCharacter(listCharacters[0].Name, listCharacters[0].Health, listCharacters[0].EnergyAmount);
+        mainCharacter = CreateCharacter(listCharacters[0].Name, listCharacters[0].Health, listCharacters[0].EnergyAmount);
 
         // Log pour test
-        Debug.Log(GameObject.FindGameObjectWithTag("Character").GetComponent<MainCharacterScript>().Name);
+        Debug.Log(mainCharacter.Name);
+
+        mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Key"));
+        mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Key"));
+
+        mainCharacter.EquipmentObjects.ForEach(obj => Debug.Log(obj.Name));
+        Debug.Log(mainCharacter.TryUseKey().ToString());
+
+        mainCharacter.EquipmentObjects.ForEach(obj => Debug.Log(obj.Name));
+    }
+
+    // Permet au gameObject de ne pas être détruit lors du changement de scènes
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
     #region Creation d'objets
-
     /// <summary>
     /// Crée un objet EnemyScript et renvoie son script
     /// </summary>
@@ -92,11 +106,37 @@ public class ObjectFactory : MonoBehaviour
         return floor;
     }
 
+    /// <summary>
+    /// Crée un objet Container et renvoie son script
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="storageCapacity"></param>
+    /// <param name="listEquipmentObjects"></param>
+    /// <param name="weapon"></param>
+    /// <returns>Script du Container créé</returns>
     public static ContainerScript CreateContainer(string name, int storageCapacity, List<EquipmentObjectClass> listEquipmentObjects, WeaponScript weapon)
     {
         ContainerScript container = Instantiate(Instance.ContainerPreFab, Vector3.zero, Quaternion.identity).GetComponent<ContainerScript>();
         container.Initialize(name, storageCapacity, listEquipmentObjects, weapon);
         return container;
+    }
+
+    /// <summary>
+    /// Crée un objet EquipmentObject et renvoie son script 
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns>Script de l'EquipmentObject</returns>
+    public static EquipmentObjectClass CreateEquipmentObject(string name)
+    {
+        EquipmentObjectClass equipmentObject = Instantiate(Instance.EquipmentObjectPrefab).GetComponent<EquipmentObjectClass>();
+        equipmentObject.Initialize(name);
+
+        if (mainCharacter != null)
+        {
+            equipmentObject.AttachToCharacter(mainCharacter.gameObject);
+        }
+
+        return equipmentObject;
     }
     #endregion
 }

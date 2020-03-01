@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Building
+  - Container
+  - Enemy
+  - Floor
+  - Character
+  - Weapon
   layers:
   - Default
   - TransparentFX
