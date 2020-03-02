@@ -35,9 +35,9 @@ public class GetDataFromJson
     }
 
     /// <summary>
-    /// Renvoie une List<> des données JSON de l'objet/array demandé
+    /// Renvoie une List<> d'objets contenant les données JSON demandées
     /// </summary>
-    /// <typeparam name="T">Classe des objets JSON</typeparam>
+    /// <typeparam name="T"></typeparam>
     /// <param name="valueToSearch"></param>
     /// <returns>List<typeparamref name="T"/></returns>
     public List<T> SearchDataFromJsonRessources<T>(string valueToSearch)

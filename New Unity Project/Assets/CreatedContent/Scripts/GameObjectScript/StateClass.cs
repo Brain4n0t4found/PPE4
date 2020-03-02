@@ -4,6 +4,7 @@ using System;
 // Using Unity
 using UnityEngine;
 
+#region Classe de l'objet final
 [Serializable]
 public class StateClass
 {
@@ -48,3 +49,24 @@ public class StateClass
     }
     #endregion
 }
+#endregion
+
+#region Classe modèle
+[Serializable]
+public class StateModel
+{
+    #region Properties
+    public string Name { get; set; }
+    public int DamageRate { get; set; }
+    #endregion
+
+    #region Constructors
+    public StateModel() { }
+    public StateModel(string name, int damageRate)
+    {
+        this.Name = name;
+        this.DamageRate = damageRate;
+    }
+    #endregion
+}
+#endregion

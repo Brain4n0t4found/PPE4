@@ -4,6 +4,7 @@ using System;
 // Using Unity
 using UnityEngine;
 
+#region Classe du GameObject
 [Serializable]
 public class FloorScript : MonoBehaviour
 {
@@ -14,10 +15,6 @@ public class FloorScript : MonoBehaviour
     #endregion
 
     #region Constructor
-    /// <summary>
-    /// Remplit les valeurs du script
-    /// </summary>
-    /// <param name="floorNumber"></param>
     public void Initialize(int floorNumber)
     {
         this.FloorNumber = floorNumber;
@@ -27,3 +24,22 @@ public class FloorScript : MonoBehaviour
     }
     #endregion
 }
+#endregion
+
+#region Classe modèle
+[Serializable]
+public class FloorModel
+{
+    #region Properties
+    public int FloorNumber { get; set; }
+    #endregion
+
+    #region Constructors
+    public FloorModel() { }
+    public FloorModel(int floorNumber)
+    {
+        this.FloorNumber = floorNumber;
+    }
+    #endregion
+}
+#endregion

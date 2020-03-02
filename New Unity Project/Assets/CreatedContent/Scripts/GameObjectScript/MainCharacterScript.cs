@@ -1,10 +1,12 @@
 ﻿// Using System
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 // Using Unity
 using UnityEngine;
 
+#region Classe du gameObject
 public class MainCharacterScript : MonoBehaviour
 {
     #region Properties
@@ -19,12 +21,6 @@ public class MainCharacterScript : MonoBehaviour
     #endregion
 
     #region Constructor
-    /// <summary>
-    /// Remplit les valeurs du script
-    /// </summary>
-    /// <param name="name"></param>
-    /// <param name="health"></param>
-    /// <param name="energyAmount"></param>
     public void Initialize(string name, int health, int energyAmount)
     {
         Name = name;
@@ -101,3 +97,26 @@ public class MainCharacterScript : MonoBehaviour
     }
     #endregion
 }
+#endregion
+
+#region Classe modèle
+[Serializable]
+public class MainCharacterModel
+{
+    #region Properties
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int EnergyAmount { get; set; }
+    #endregion
+
+    #region Constructors
+    public MainCharacterModel() { }
+    public MainCharacterModel(string name, int health, int energyAmount)
+    {
+        this.Name = name;
+        this.Health = health;
+        this.EnergyAmount = energyAmount;
+    }
+    #endregion
+}
+#endregion

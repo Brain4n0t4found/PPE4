@@ -1,6 +1,10 @@
-﻿// Using Unity
+﻿// Using System
+using System;
+
+// Using Unity
 using UnityEngine;
 
+#region Classe du GameObject
 public class EnemyScript : MonoBehaviour
 {
     #region Properties
@@ -10,12 +14,6 @@ public class EnemyScript : MonoBehaviour
     #endregion
 
     #region Constructor
-    /// <summary>
-    /// Remplit les valeurs du script
-    /// </summary>
-    /// <param name="name"></param>
-    /// <param name="health"></param>
-    /// <param name="damages"></param>
     public void Initialize(string name, int health, int damages)
     {
         Name = name;
@@ -24,3 +22,26 @@ public class EnemyScript : MonoBehaviour
     }
     #endregion
 }
+#endregion
+
+#region Classe modèle
+[Serializable]
+public class EnemyModel
+{
+    #region Properties
+    public string Name { get; set; }
+    public int Health { get; set; }
+    public int Damages { get; set; }
+    #endregion
+
+    #region Constructors
+    public EnemyModel() { }
+    public EnemyModel(string name, int health, int damages)
+    {
+        this.Name = name;
+        this.Health = health;
+        this.Damages = damages;
+    }
+    #endregion
+}
+#endregion

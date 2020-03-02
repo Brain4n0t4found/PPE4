@@ -29,14 +29,15 @@ public class ObjectFactory : MonoBehaviour
 
         // Récupération de la liste de charactères dans le fichier des ressources du jeu
         List<MainCharacterModel> listCharacters = GetDataFromJsonScript.SearchDataFromJsonRessources<MainCharacterModel>("characters");
+        MainCharacterModel character = listCharacters[0];
 
         // Création du personnage
-        mainCharacter = CreateCharacter(listCharacters[0].Name, listCharacters[0].Health, listCharacters[0].EnergyAmount);
+        mainCharacter = CreateCharacter(character.Name, character.Health, character.EnergyAmount);
 
         // Log pour test
         Debug.Log(mainCharacter.Name);
 
-        mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Key"));
+        mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Asperge"));
         mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Key"));
 
         mainCharacter.EquipmentObjects.ForEach(obj => Debug.Log(obj.Name));
@@ -120,10 +121,10 @@ public class ObjectFactory : MonoBehaviour
     }
 
     /// <summary>
-    /// Crée un objet EquipmentObject et renvoie son script 
+    /// Crée un objet C# EquipmentObject et le renvoie
     /// </summary>
     /// <param name="name"></param>
-    /// <returns>Script de l'EquipmentObject</returns>
+    /// <returns>Objet C# EquipmentObjectClass</returns>
     public static EquipmentObjectClass CreateEquipmentObject(string name)
     {
         EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
@@ -137,6 +138,13 @@ public class ObjectFactory : MonoBehaviour
         return equipmentObject;
     }
 
+    /// <summary>
+    /// Crée un objet C# State et le renvoie 
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="damageRate"></param>
+    /// <param name="entityAttachedTo"></param>
+    /// <returns>Objet C# StateClass</returns>
     public static StateClass CreateStateObject(string name, int damageRate, GameObject entityAttachedTo)
     {
         StateClass state = new StateClass();

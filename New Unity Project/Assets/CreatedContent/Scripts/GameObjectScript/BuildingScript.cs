@@ -1,9 +1,11 @@
 ﻿// Using System
+using System;
 using System.Collections.Generic;
 
 // USing Unity
 using UnityEngine;
 
+#region Classe du GameObject
 public class BuildingScript : MonoBehaviour
 {
     #region properties
@@ -13,9 +15,6 @@ public class BuildingScript : MonoBehaviour
     #endregion
 
     #region Constructor
-    /// <summary>
-    /// Remplit les valeurs du script
-    /// </summary>
     public void Initialize()
     {
         FloorNumber = 2; //new System.Random().Next(1, 4);  // Création d'un nombre d'étages aléatoire
@@ -29,3 +28,24 @@ public class BuildingScript : MonoBehaviour
     }
     #endregion
 }
+#endregion
+
+#region Classe modèle
+[Serializable]
+public class BuildingModel
+{
+    #region Properties
+    public string Name { get; set; }
+    public int FloorNumber { get; set; }
+    #endregion
+
+    #region Constructors
+    public BuildingModel() { }
+    public BuildingModel(string name, int floorNumber)
+    {
+        this.Name = name;
+        this.FloorNumber = floorNumber;
+    }
+    #endregion
+}
+#endregion
