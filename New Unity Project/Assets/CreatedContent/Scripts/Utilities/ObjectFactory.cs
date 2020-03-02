@@ -142,7 +142,7 @@ public class ObjectFactory : MonoBehaviour
         StateClass state = new StateClass();
         state.Initialize(name, damageRate, entityAttachedTo);
 
-
+        return state;
     }
     #endregion
 }
