@@ -24,11 +24,11 @@ public class StateClass
         this.DamageRate = damageRate;
         this.EntityAttachedTo = entityAttachedTo;
 
-        if (this.EntityAttachedTo.GetComponent<MainCharacterScript>() != null)
+        if (this.EntityAttachedTo.GetComponent<EnemyScript>() != null) 
         {
             this.MainCharacterScript = this.EntityAttachedTo.GetComponent<MainCharacterScript>();
         }
-        else if (this.EntityAttachedTo.GetComponent<EnemyScript>() != null)
+        else if (this.EntityAttachedTo.GetComponent<MainCharacterScript>() != null)
         {
             this.EnemyScript = this.EntityAttachedTo.GetComponent<EnemyScript>();
         }
@@ -38,11 +38,11 @@ public class StateClass
     #region Functions
     public void ApplyDamages()
     {
-        if (MainCharacterScript != null)
+        if (EnemyScript != null)
         {
             MainCharacterScript.Health -= DamageRate;
         }
-        else if (EnemyScript != null)
+        else if (MainCharacterScript != null)
         {
             EnemyScript.Health -= DamageRate;
         }
