@@ -6,7 +6,7 @@ using UnityEngine;
 
 #region Classe de l'objet final
 [Serializable]
-public class StateClass
+public class StateClass : MonoBehaviour
 {
     #region Properties
     public string Name { get; set; }
@@ -36,15 +36,32 @@ public class StateClass
     #endregion
 
     #region Functions
+    /// <summary>
+    /// Application des dégats de la classe
+    /// </summary>
     public void ApplyDamages()
     {
         if (EnemyScript != null)
         {
-            EnemyScript.Health -= DamageRate;
+            if (EnemyScript.Health > DamageRate)
+            {
+                EnemyScript.Health -= DamageRate;
+            }
+            else
+            {
+                Destroy(EnemyScript.gameObject);
+            }
         }
         else if (MainCharacterScript != null)
         {
-            MainCharacterScript.Health -= DamageRate;
+            if (MainCharacterScript.Health > DamageRate)
+            {
+                MainCharacterScript.Health -= DamageRate;
+            }
+            else
+            {
+                Destroy(MainCharacterScript.gameObject);
+            }
         }
     }
     #endregion
