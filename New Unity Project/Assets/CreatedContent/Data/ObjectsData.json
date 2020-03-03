@@ -163,56 +163,56 @@
 	"monsters": [
 		{
 			"Name": "Zombie",
-			"Health": 1,
-			"Damages": 1
+			"Health": 100,
+			"Damages": 5
 		},
 		{
 			"Name": "Hunter",
-			"Health": 1,
-			"Damages": 1
+			"Health": 80,
+			"Damages": 10
 		},
 		{
 			"Name": "Revenant",
-			"Health": 1,
-			"Damages": 1
+			"Health": 120,
+			"Damages": 5
 		},
 		{
 			"Name": "Zombie toxique",
-			"Health": 1,
-			"Damages": 1
+			"Health": 50,
+			"Damages": 5
 		},
 		{
 			"Name": "Chien zombie",
-			"Health": 1,
-			"Damages": 1
+			"Health": 25,
+			"Damages": 30
 		}
 	],
 	"bosses": [
 		{
 			"Name": "Tyran",
-			"Health": 1,
-			"Damages": 1
+			"Health": 150,
+			"Damages": 20
 		},
 		{
 			"Name": "Ustanak",
-			"Health": 1,
-			"Damages": 1
+			"Health": 180,
+			"Damages": 15
 		},
 		{
 			"Name": "Ogre",
-			"Health": 1,
-			"Damages": 1
+			"Health": 200,
+			"Damages": 25
 		},
 		{
 			"Name": "Zombie tronçonneuse",
-			"Health": 1,
-			"Damages": 1
+			"Health": 75,
+			"Damages": 30
 		}
 	],
 	"status": [
 		{
 			"Name": "Empoisonné",
-			"DamageRate": 1
+			"DamageRate": 2
 		},
 		{
 			"Name": "Douleur crânienne",
@@ -220,7 +220,7 @@
 		},
 		{
 			"Name": "Infecté",
-			"DamageRate": 1
+			"DamageRate": 2
 		},
 		{
 			"Name": "Fatigué",
@@ -228,7 +228,7 @@
 		},
 		{
 			"Name": "Brûlé",
-			"DamageRate": 1
+			"DamageRate": 5
 		}
 	]
 }
