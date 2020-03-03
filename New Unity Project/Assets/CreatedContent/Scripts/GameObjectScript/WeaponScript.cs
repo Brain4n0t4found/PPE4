@@ -63,7 +63,7 @@ public class WeaponModel
     public string Name { get; set; }
     public int Damages { get; set; }
     public int MunitionAmount { get; set; }
-    public int ChargerLenght { get; set; }
+    public int ChargerLength { get; set; }
     public int ChargerMunitionAmout { get; set; }
     #endregion
 
@@ -74,7 +74,7 @@ public class WeaponModel
         this.Name = name;
         this.Damages = damages;
         this.MunitionAmount = munitionAmount;
-        this.ChargerLength = chargerLenght;
+        this.ChargerLength = chargerLength;
         this.ChargerMunitionAmout = chargerMunitionAmout;
     }
     #endregion

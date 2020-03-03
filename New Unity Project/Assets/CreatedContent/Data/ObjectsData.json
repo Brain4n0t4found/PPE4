@@ -53,58 +53,58 @@
 	],
 	"characters": [
 		{
-			"health": "60",
-			"energy": "50",
-			"name": "John"
+			"Health": "60",
+			"EnergyAmount": "50",
+			"Name": "John"
 		},
 		{
-			"health": "100",
-			"energy": "30",
-			"name": "Test"
+			"Health": "100",
+			"EnergyAmount": "30",
+			"Name": "Test"
 		}
 	],
 	"weapons": [
 		{
 			"Name": "Couteau",
 			"Damages": 1,
-			"MunitionAmount": 1,
+			"MunitionAmount": 0,
 			"ChargerLength": 1,
 			"ChargerMunitionAmout": 1
 		},
 		{
 			"Name": "Pistolet",
-			"Damages": 1,
-			"MunitionAmount": 1,
-			"ChargerLength": 1,
-			"ChargerMunitionAmout": 1
+			"Damages": 7,
+			"MunitionAmount": 0,
+			"ChargerLength": 9,
+			"ChargerMunitionAmout": 9
 		},
 		{
 			"Name": "Fusil à pompe",
-			"Damages": 1,
-			"MunitionAmount": 1,
-			"ChargerLength": 10,
-			"ChargerMunitionAmout": 1
+			"Damages": 25,
+			"MunitionAmount": 0,
+			"ChargerLength": 6,
+			"ChargerMunitionAmout": 6
 		},
 		{
 			"Name": "Fusil d'assaut",
-			"Damages": 1,
-			"MunitionAmount": 1,
-			"ChargerLength": 1,
-			"ChargerMunitionAmout": 1
+			"Damages": 10,
+			"MunitionAmount": 0,
+			"ChargerLength": 30,
+			"ChargerMunitionAmout": 30
 		},
 		{
 			"Name": "Sniper",
-			"Damages": 1,
-			"MunitionAmount": 1,
-			"ChargerLength": 1,
-			"ChargerMunitionAmout": 1
+			"Damages": 50,
+			"MunitionAmount": 0,
+			"ChargerLength": 11,
+			"ChargerMunitionAmout": 11
 		},
 		{
 			"Name": "Lance-flamme",
-			"Damages": 1,
-			"MunitionAmount": 1,
-			"ChargerLength": 1,
-			"ChargerMunitionAmout": 1
+			"Damages": 15,
+			"MunitionAmount": 0,
+			"ChargerLength": 120,
+			"ChargerMunitionAmout": 120
 		}
 	],
 	"items": [
