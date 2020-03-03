@@ -209,26 +209,26 @@
 			"Damages": 1
 		}
 	],
-	"status": {
-		"poisoned": {
+	"status": [
+		{
 			"Name": "Empoisonné",
 			"DamageRate": 1
 		},
-		"headache": {
+		{
 			"Name": "Douleur crânienne",
 			"DamageRate": 1
 		},
-		"infected": {
+		{
 			"Name": "Infecté",
 			"DamageRate": 1
 		},
-		"tired": {
+		{
 			"Name": "Fatigué",
 			"DamageRate": 1
 		},
-		"burned": {
+		{
 			"Name": "Brûlé",
 			"DamageRate": 1
 		}
-	}
+	]
 }
