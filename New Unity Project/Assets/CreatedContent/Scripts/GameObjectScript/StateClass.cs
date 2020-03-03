@@ -6,7 +6,7 @@ using UnityEngine;
 
 #region Classe de l'objet final
 [Serializable]
-public class StateClass : MonoBehaviour
+public class StateClass
 {
     #region Properties
     public string Name { get; set; }
@@ -37,7 +37,7 @@ public class StateClass : MonoBehaviour
 
     #region Functions
     /// <summary>
-    /// Application des dégats de la classe
+    /// Application des dégats de la classe, tue l'entité liée si elle n'a plus suffisamment de PV
     /// </summary>
     public void ApplyDamages()
     {
@@ -49,7 +49,7 @@ public class StateClass : MonoBehaviour
             }
             else
             {
-                Destroy(EnemyScript.gameObject);
+                UnityEngine.Object.Destroy(EnemyScript.gameObject);
             }
         }
         else if (MainCharacterScript != null)
@@ -60,7 +60,7 @@ public class StateClass : MonoBehaviour
             }
             else
             {
-                Destroy(MainCharacterScript.gameObject);
+                UnityEngine.Object.Destroy(MainCharacterScript.gameObject);
             }
         }
     }
