@@ -2,39 +2,39 @@
 	"buildings": [
 		{
 			"Name": "École",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Supermarché",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Pharmacie",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Épicerie",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Maison",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Immeuble",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Entreprise",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
 			"Name": "Hôtel",
-			"FloorNumber": 1
+			"FloorsNumber": 1
 		},
 		{
-			"Same": "Commissariat",
-			"FloorNumber": 2
+			"Name": "Commissariat",
+			"FloorsNumber": 2
 		}
 	],
 	"furnitures": [

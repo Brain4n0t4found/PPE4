@@ -12,15 +12,18 @@ public class GetDataFromJson
 {
     #region properties
     private string JsonContent { get; set; }
+
     #region Listes de modeles avec les valeurs du JSON
-    public List<BuildingModel> buildingModelsList { get; set; }
-    public List<ContainerModel> containerModelsList { get; set; }
-    public List<EnemyModel> enemyModelsList { get; set; }
-    public List<EquipmentObjectModel> equipmentObjectModelsList { get; set; }
-    public List<MainCharacterModel> mainCharacterModelsList { get; set; }
-    public List<StateModel> stateModelsList { get; set; }
-    public List<WeaponModel> weaponModelsList { get; set; }
+    public static List<BuildingModel> buildingModelsList { get; set; }
+    public static List<ContainerModel> containerModelsList { get; set; }
+    public static List<EnemyModel> enemyModelsList { get; set; }
+    public static List<EquipmentObjectModel> equipmentObjectModelsList { get; set; }
+    public static List<MainCharacterModel> mainCharacterModelsList { get; set; }
+    public static List<StateModel> stateModelsList { get; set; }
+    public static List<WeaponModel> weaponModelsList { get; set; }
+    public static List<EnemyModel> bossModelsList { get; set; }
     #endregion
+
     #endregion
 
     #region Constructor
@@ -49,6 +52,7 @@ public class GetDataFromJson
         mainCharacterModelsList = SearchDataFromJsonRessources<MainCharacterModel>(JsonPathes.CharactersPath);
         stateModelsList = SearchDataFromJsonRessources<StateModel>(JsonPathes.StatusPath);
         weaponModelsList = SearchDataFromJsonRessources<WeaponModel>(JsonPathes.WeaponsPath);
+        bossModelsList = SearchDataFromJsonRessources<EnemyModel>(JsonPathes.BossesPath);
     }
 
     /// <summary>

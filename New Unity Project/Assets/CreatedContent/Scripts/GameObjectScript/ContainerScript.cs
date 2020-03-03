@@ -11,6 +11,7 @@ public class ContainerScript : MonoBehaviour
     #region Properties
     public string Name { get; set; }
     public int StorageCapacity { get; set; }
+    public bool HasLockOnIt { get; set; }
     public List<EquipmentObjectClass> ListEquipmentObjects { get; set; }
     public WeaponScript Weapon { get; set; }
     #endregion
@@ -22,6 +23,19 @@ public class ContainerScript : MonoBehaviour
         this.StorageCapacity = storageCapacity;
         this.ListEquipmentObjects = listEquipmentObjects;
         this.Weapon = weapon;
+
+        switch (this.Name)
+        {
+            case "Sac":
+                this.HasLockOnIt = false;
+                break;
+            case "Armoire":
+                this.HasLockOnIt = new System.Random().Next(1) == 0 ? true : false;
+                break;
+            case "Coffre":
+                this.HasLockOnIt = true;
+                break;
+        }
     }
     #endregion
 }

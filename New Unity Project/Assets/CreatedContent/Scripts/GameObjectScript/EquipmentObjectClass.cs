@@ -10,14 +10,18 @@ public class EquipmentObjectClass
 {
     #region Properties
     public string Name { get; set; }
-
     private GameObject character { get; set; }
     #endregion
 
     #region Constructor
-    public void Initialize(string name)
+    public void Initialize(string name, GameObject mainCharacter)
     {
         this.Name = name;
+
+        if (mainCharacter != null)
+        {
+            this.character = mainCharacter;
+        }
     }
     #endregion
 

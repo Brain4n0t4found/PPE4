@@ -10,20 +10,21 @@ public class BuildingScript : MonoBehaviour
 {
     #region properties
     public string Name { get; set; }
-    public int FloorNumber { get; set; }
+    public int FloorsNumber { get; set; }
     public List<FloorScript> FloorList { get; set; }
     #endregion
 
     #region Constructor
-    public void Initialize()
+    public void Initialize(string name, int floorsNumber)
     {
-        FloorNumber = 2; //new System.Random().Next(1, 4);  // Création d'un nombre d'étages aléatoire
+        this.Name = name;
+        this.FloorsNumber = floorsNumber;
 
-        // Création et remplissage de la liste d'étages
+        // Déclaration de la liste d'étages et remplissage selon le nombre d'étages récupéré du JSON
         FloorList = new List<FloorScript>();
-        for (int i = 0; i < FloorNumber; i++)
+        for (int i = 0; i < this.FloorsNumber; i++)
         {
-            FloorList.Add(ObjectFactory.CreateFloor(i));
+            FloorList.Add(ObjectFactory.CreateFloor(i, this.FloorsNumber));
         }
     }
     #endregion
@@ -36,7 +37,7 @@ public class BuildingModel
 {
     #region Properties
     public string Name { get; set; }
-    public int FloorNumber { get; set; }
+    public int FloorsNumber { get; set; }
     #endregion
 
     #region Constructors
@@ -44,7 +45,7 @@ public class BuildingModel
     public BuildingModel(string name, int floorNumber)
     {
         this.Name = name;
-        this.FloorNumber = floorNumber;
+        this.FloorsNumber = floorNumber;
     }
     #endregion
 }

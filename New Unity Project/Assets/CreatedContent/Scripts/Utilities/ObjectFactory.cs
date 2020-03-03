@@ -1,4 +1,5 @@
 ﻿// Using System
+using System.Linq;
 using System.Collections.Generic;
 
 // Using Unity
@@ -14,9 +15,9 @@ public class ObjectFactory : MonoBehaviour
     public GameObject FloorPreFab;
     public GameObject WeaponPreFab;
     public GameObject ContainerPreFab;
+    public GetDataFromJson GetDataFromJsonScript;
 
     private static MainCharacterScript mainCharacter;
-    private GetDataFromJson GetDataFromJsonScript;
     #endregion
 
     #region Unity Functions
@@ -27,36 +28,14 @@ public class ObjectFactory : MonoBehaviour
         // Création de l'objet de récupération JSON
         GetDataFromJsonScript = new GetDataFromJson();
 
-        // Récupération de la liste de charactères dans le fichier des ressources du jeu
-        List<MainCharacterModel> listCharacters = GetDataFromJsonScript.mainCharacterModelsList;
-        MainCharacterModel character = listCharacters[0];
+        BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
 
-        // Création du personnage
-        mainCharacter = CreateCharacter(character.Name, character.Health, character.EnergyAmount);
+        CreateBuilding(buildingModel.Name, buildingModel.FloorsNumber);
 
-        // Log pour test
-        Debug.Log(mainCharacter.Name + " " + mainCharacter.Health);
-
-        StateClass state1 = new StateClass();
-        state1.Initialize("poison", 5, mainCharacter.gameObject);
-
-        state1.ApplyDamages();
-        Debug.Log(mainCharacter.Name + " " + mainCharacter.Health);
-
-        EnemyScript enemy = CreateEnemy("zombie", 100, 23);
-
-        StateClass state2 = new StateClass();
-        state2.Initialize("poison", 10, enemy.gameObject);
-
-        List<StateClass> listState = new List<StateClass>
-        {
-            state1,
-            state2
-        };
-
-        listState.ForEach(state => state.ApplyDamages());
-
-        Debug.Log(mainCharacter.Name + " " + mainCharacter.Health + "              " + enemy.Name + " " + enemy.Health);
+        BuildingScript building = GameObject.FindGameObjectWithTag("Building").GetComponent<BuildingScript>();
+        GameObject[] listFloors = GameObject.FindGameObjectsWithTag("Floor");
+        GameObject[] listEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] listContainers = GameObject.FindGameObjectsWithTag("Container");
     }
 
     // Permet au gameObject de ne pas être détruit lors du changement de scènes
@@ -99,10 +78,10 @@ public class ObjectFactory : MonoBehaviour
     /// Crée un objet Building et renvoie son script
     /// </summary>
     /// <returns>Script du Building créé</returns>
-    public static BuildingScript CreateBuilding()
+    public static BuildingScript CreateBuilding(string name, int floorsNumber)
     {
         BuildingScript building = Instantiate(Instance.BuildingPreFab, Vector3.zero, Quaternion.identity).GetComponent<BuildingScript>();
-        building.Initialize();
+        building.Initialize(name, floorsNumber);
         return building;
     }
 
@@ -111,10 +90,10 @@ public class ObjectFactory : MonoBehaviour
     /// </summary>
     /// <param name="floorNumber"></param>
     /// <returns>Script du Floor créé</returns>
-    public static FloorScript CreateFloor(int floorNumber)
+    public static FloorScript CreateFloor(int floorNumber, int totalFloorsNumber)
     {
         FloorScript floor = Instantiate(Instance.FloorPreFab, Vector3.zero, Quaternion.identity).GetComponent<FloorScript>();
-        floor.Initialize(floorNumber);
+        floor.Initialize(floorNumber, totalFloorsNumber);
         return floor;
     }
 
@@ -141,13 +120,7 @@ public class ObjectFactory : MonoBehaviour
     public static EquipmentObjectClass CreateEquipmentObject(string name)
     {
         EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
-        equipmentObject.Initialize(name);
-
-        if (mainCharacter != null)
-        {
-            equipmentObject.AttachToCharacter(mainCharacter.gameObject);
-        }
-
+        equipmentObject.Initialize(name, mainCharacter.gameObject);
         return equipmentObject;
     }
 
@@ -158,7 +131,7 @@ public class ObjectFactory : MonoBehaviour
     /// <param name="damageRate"></param>
     /// <param name="entityAttachedTo"></param>
     /// <returns>Objet C# StateClass</returns>
-    public static StateClass CreateStateObject(string name, int damageRate, GameObject entityAttachedTo)
+    public static StateClass CreateState(string name, int damageRate, GameObject entityAttachedTo)
     {
         StateClass state = new StateClass();
         state.Initialize(name, damageRate, entityAttachedTo);
