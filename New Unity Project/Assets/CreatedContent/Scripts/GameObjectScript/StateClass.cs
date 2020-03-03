@@ -24,13 +24,13 @@ public class StateClass
         this.DamageRate = damageRate;
         this.EntityAttachedTo = entityAttachedTo;
 
-        if (this.EntityAttachedTo.GetComponent<EnemyScript>() != null) 
+        if (this.EntityAttachedTo.GetComponent<EnemyScript>() != null)
         {
-            this.MainCharacterScript = this.EntityAttachedTo.GetComponent<MainCharacterScript>();
+            this.EnemyScript = this.EntityAttachedTo.GetComponent<EnemyScript>();
         }
         else if (this.EntityAttachedTo.GetComponent<MainCharacterScript>() != null)
         {
-            this.EnemyScript = this.EntityAttachedTo.GetComponent<EnemyScript>();
+            this.MainCharacterScript = this.EntityAttachedTo.GetComponent<MainCharacterScript>();
         }
     }
     #endregion
@@ -40,11 +40,11 @@ public class StateClass
     {
         if (EnemyScript != null)
         {
-            MainCharacterScript.Health -= DamageRate;
+            EnemyScript.Health -= DamageRate;
         }
         else if (MainCharacterScript != null)
         {
-            EnemyScript.Health -= DamageRate;
+            MainCharacterScript.Health -= DamageRate;
         }
     }
     #endregion

@@ -6,12 +6,21 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+using UnityEngine;
+
 public class GetDataFromJson
 {
     #region properties
-    public string JsonContent { get; private set; }
-
-    private readonly string pathToJsonData = "Assets/CreatedContent/Data/ObjectsData.json";
+    private string JsonContent { get; set; }
+    #region Listes de modeles avec les valeurs du JSON
+    public List<BuildingModel> buildingModelsList { get; set; }
+    public List<ContainerModel> containerModelsList { get; set; }
+    public List<EnemyModel> enemyModelsList { get; set; }
+    public List<EquipmentObjectModel> equipmentObjectModelsList { get; set; }
+    public List<MainCharacterModel> mainCharacterModelsList { get; set; }
+    public List<StateModel> stateModelsList { get; set; }
+    public List<WeaponModel> weaponModelsList { get; set; }
+    #endregion
     #endregion
 
     #region Constructor
@@ -23,15 +32,23 @@ public class GetDataFromJson
 
     #region Functions
     /// <summary>
-    /// Attribution des ressources JSON à JsonContent
+    /// Attribution des ressources JSON
     /// </summary>
     public void setJsonContent()
     {
         // Crée un reader à partir du chemin vers le fichier de ressources du projet
-        StreamReader jsonReader = new StreamReader(pathToJsonData);
+        StreamReader jsonReader = new StreamReader(JsonPathes.PathToJsonData);
 
         // Applique le contenu du reader à JsonContent
         JsonContent = jsonReader.ReadToEnd();
+
+        buildingModelsList = SearchDataFromJsonRessources<BuildingModel>(JsonPathes.BuildingsPath);
+        containerModelsList = SearchDataFromJsonRessources<ContainerModel>(JsonPathes.FurnituresPath);
+        enemyModelsList = SearchDataFromJsonRessources<EnemyModel>(JsonPathes.MonstersPath);
+        equipmentObjectModelsList = SearchDataFromJsonRessources<EquipmentObjectModel>(JsonPathes.ItemsPath);
+        mainCharacterModelsList = SearchDataFromJsonRessources<MainCharacterModel>(JsonPathes.CharactersPath);
+        stateModelsList = SearchDataFromJsonRessources<StateModel>(JsonPathes.StatusPath);
+        weaponModelsList = SearchDataFromJsonRessources<WeaponModel>(JsonPathes.WeaponsPath);
     }
 
     /// <summary>
@@ -40,7 +57,7 @@ public class GetDataFromJson
     /// <typeparam name="T"></typeparam>
     /// <param name="valueToSearch"></param>
     /// <returns>List<typeparamref name="T"/></returns>
-    public List<T> SearchDataFromJsonRessources<T>(string valueToSearch)
+    private List<T> SearchDataFromJsonRessources<T>(string valueToSearch)
     {
         // Récupère les données du fichier JSON dans un objet JSON
         JObject jObject = JObject.Parse(JsonContent);
@@ -48,5 +65,23 @@ public class GetDataFromJson
         // Récupère et renvoie l'objet demandé
         return JsonConvert.DeserializeObject<List<T>>(jObject[valueToSearch].ToString());
     }
+    #endregion
+}
+
+public static class JsonPathes
+{
+    #region Chemin vers le fichier
+    public static readonly string PathToJsonData = "Assets/CreatedContent/Data/ObjectsData.json";
+    #endregion
+
+    #region Chemin dans le JSON vers les différents éléments
+    public static readonly string BuildingsPath = "buildings";
+    public static readonly string FurnituresPath = "furnitures";
+    public static readonly string CharactersPath = "characters";
+    public static readonly string WeaponsPath = "weapons";
+    public static readonly string ItemsPath = "items";
+    public static readonly string MonstersPath = "monsters";
+    public static readonly string BossesPath = "bosses";
+    public static readonly string StatusPath = "status";
     #endregion
 }

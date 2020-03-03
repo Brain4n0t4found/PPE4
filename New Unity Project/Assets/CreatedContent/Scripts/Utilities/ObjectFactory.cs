@@ -28,22 +28,35 @@ public class ObjectFactory : MonoBehaviour
         GetDataFromJsonScript = new GetDataFromJson();
 
         // Récupération de la liste de charactères dans le fichier des ressources du jeu
-        List<MainCharacterModel> listCharacters = GetDataFromJsonScript.SearchDataFromJsonRessources<MainCharacterModel>("characters");
+        List<MainCharacterModel> listCharacters = GetDataFromJsonScript.mainCharacterModelsList;
         MainCharacterModel character = listCharacters[0];
 
         // Création du personnage
         mainCharacter = CreateCharacter(character.Name, character.Health, character.EnergyAmount);
 
         // Log pour test
-        Debug.Log(mainCharacter.Name);
+        Debug.Log(mainCharacter.Name + " " + mainCharacter.Health);
 
-        mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Asperge"));
-        mainCharacter.EquipmentObjects.Add(CreateEquipmentObject("Key"));
+        StateClass state1 = new StateClass();
+        state1.Initialize("poison", 5, mainCharacter.gameObject);
 
-        mainCharacter.EquipmentObjects.ForEach(obj => Debug.Log(obj.Name));
-        Debug.Log(mainCharacter.TryUseKey().ToString());
+        state1.ApplyDamages();
+        Debug.Log(mainCharacter.Name + " " + mainCharacter.Health);
 
-        mainCharacter.EquipmentObjects.ForEach(obj => Debug.Log(obj.Name));
+        EnemyScript enemy = CreateEnemy("zombie", 100, 23);
+
+        StateClass state2 = new StateClass();
+        state2.Initialize("poison", 10, enemy.gameObject);
+
+        List<StateClass> listState = new List<StateClass>
+        {
+            state1,
+            state2
+        };
+
+        listState.ForEach(state => state.ApplyDamages());
+
+        Debug.Log(mainCharacter.Name + " " + mainCharacter.Health + "              " + enemy.Name + " " + enemy.Health);
     }
 
     // Permet au gameObject de ne pas être détruit lors du changement de scènes
