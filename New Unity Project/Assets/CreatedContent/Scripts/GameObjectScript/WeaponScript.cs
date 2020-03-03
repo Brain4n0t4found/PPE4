@@ -39,7 +39,7 @@ public class WeaponScript : MonoBehaviour
     /// </summary>
     public void Reload()
     {
-        if(MunitionAmount < ChargerLength)
+        if (MunitionAmount < ChargerLength)
         {
             ChargerMunitionAmout += MunitionAmount;
             MunitionAmount = 0;
