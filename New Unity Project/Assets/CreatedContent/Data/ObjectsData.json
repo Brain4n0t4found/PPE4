@@ -2,11 +2,11 @@
 	"building": {
 		"1height": [
 			{
-				"Name": "École",
+				"Name": "ï¿½cole",
 				"FloorNumber": 1
 			},
 			{
-				"Name": "Supermarché",
+				"Name": "Supermarchï¿½",
 				"FloorNumber": 1
 			},
 			{
@@ -14,7 +14,7 @@
 				"FloorNumber": 1
 			},
 			{
-				"Name": "Épicerie",
+				"Name": "ï¿½picerie",
 				"FloorNumber": 1
 			},
 			{
@@ -30,7 +30,7 @@
 				"FloorNumber": 1
 			},
 			{
-				"Name": "Hôtel",
+				"Name": "Hï¿½tel",
 				"FloorNumber": 1
 			}
 		],
@@ -84,7 +84,7 @@
 			"ChargerMunitionAmout": 1
 		},
 		{
-			"Name": "Fusil à pompe",
+			"Name": "Fusil ï¿½ pompe",
 			"Damages": 1,
 			"MunitionAmount": 1
 		},
@@ -115,10 +115,10 @@
 			"Name": "Bouteille d'eau"
 		},
 		{
-			"Name": "Boisson énergisante"
+			"Name": "Boisson ï¿½nergisante"
 		},
 		{
-			"Name": "Munitions de fusil à pompe"
+			"Name": "Munitions de fusil ï¿½ pompe"
 		},
 		{
 			"Name": "Munitions de fusil d'assaut"
@@ -130,13 +130,13 @@
 			"Name": "Carburant pour lance-flamme"
 		},
 		{
-			"Name": "Clé"
+			"Name": "Clï¿½"
 		},
 		{
-			"Name": "Paracétamol"
+			"Name": "Paracï¿½tamol"
 		},
 		{
-			"Name": "Antibactérien"
+			"Name": "Antibactï¿½rien"
 		},
 		{
 			"Name": "Antidote"
@@ -148,7 +148,7 @@
 			"Name": "Plastron"
 		},
 		{
-			"Name": "Jambières"
+			"Name": "Jambiï¿½res"
 		},
 		{
 			"Name": "Bottes"
@@ -201,30 +201,30 @@
 			"Damages": 1
 		},
 		{
-			"Name": "Zombie tronçonneuse",
+			"Name": "Zombie tronï¿½onneuse",
 			"Health": 1,
 			"Damages": 1
 		}
 	],
 	"status": {
 		"poisoned": {
-			"Name": "Empoisonné",
+			"Name": "Empoisonnï¿½",
 			"DamageRate": 1
 		},
 		"headache": {
-			"Name": "Douleur crânienne",
+			"Name": "Douleur crï¿½nienne",
 			"DamageRate": 1
 		},
 		"infected": {
-			"Name": "Infecté",
+			"Name": "Infectï¿½",
 			"DamageRate": 1
 		},
 		"tired": {
-			"Name": "Fatigué",
+			"Name": "Fatiguï¿½",
 			"DamageRate": 1
 		},
 		"burned": {
-			"Name": "Brûlé",
+			"Name": "Brï¿½lï¿½",
 			"DamageRate": 1
 		}
 	}
