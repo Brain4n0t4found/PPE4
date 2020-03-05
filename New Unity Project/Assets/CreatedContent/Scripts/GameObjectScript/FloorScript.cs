@@ -21,7 +21,7 @@ public class FloorScript : MonoBehaviour
         this.FloorNumber = floorNumber;
 
         // Récupération des models adaptés à l'étage
-        ContainerModel containerModel = GetAdaptedContainer();
+        ContainerModel containerModel = GetAdaptedContainer(totalFloorsNumber);
         EnemyModel enemyModel = GetAdaptedEnemy(totalFloorsNumber);
 
         // Création des objets depuis les données des models
@@ -33,21 +33,26 @@ public class FloorScript : MonoBehaviour
     /// Selon le numéro de l'étage renvoie un model de sac, coffre ou armoire
     /// </summary>
     /// <returns></returns>
-    private ContainerModel GetAdaptedContainer()
+    private ContainerModel GetAdaptedContainer(int totalFloorsNumber)
     {
-        switch (this.FloorNumber)
+        if (FloorNumber < 0)
         {
-            case 0:
-                return GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Sac");
-            case 1:
-                // 80% de chances de renvoyer une armoire
-                return new System.Random().Next(100) >= 80
-                    ? GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Coffre")
-                    : GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Armoire");
-            case 2:
-                return GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Coffre");
-            default:
-                return null;
+            return null;
+        }
+        else if (FloorNumber == 0)
+        {
+            return GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Sac");
+        }
+        else if (FloorNumber < totalFloorsNumber - 1)
+        {
+            // 80% de chances de renvoyer une armoire
+            return new System.Random().Next(100) >= 80
+                ? GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Sac")
+                : GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Armoire");
+        }
+        else
+        {
+            return GetDataFromJson.containerModelsList.Single(cont => cont.Name == "Coffre");
         }
     }
 
@@ -58,7 +63,7 @@ public class FloorScript : MonoBehaviour
     private EnemyModel GetAdaptedEnemy(int totalFloorsNumber)
     {
         // Si le numéro d'étage ne correspond pas au dernier du bâtiment
-        if (this.FloorNumber + 1 != totalFloorsNumber)
+        if (FloorNumber + 1 != totalFloorsNumber)
         {
             return GetDataFromJson.enemyModelsList[new System.Random().Next(GetDataFromJson.enemyModelsList.Count)];
         }
