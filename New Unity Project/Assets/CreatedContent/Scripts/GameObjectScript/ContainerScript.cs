@@ -38,6 +38,19 @@ public class ContainerScript : MonoBehaviour
         }
     }
     #endregion
+
+    #region Function
+    /// <summary>
+    /// Extraction de l'arme du conteneur
+    /// </summary>
+    /// <returns></returns>
+    public WeaponScript ExtractWeaponFromContainer()
+    {
+        WeaponScript tmpWeapon = Weapon;
+        Weapon = null;
+        return tmpWeapon;
+    }
+    #endregion
 }
 #endregion
 
