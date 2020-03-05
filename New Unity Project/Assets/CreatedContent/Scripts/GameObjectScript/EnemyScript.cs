@@ -21,6 +21,32 @@ public class EnemyScript : MonoBehaviour
         Damages = damages;
     }
     #endregion
+
+    #region Function
+    /// <summary>
+    /// Modifie la propriété Health par rapport à la valeur damages
+    /// </summary>
+    /// <param name="damages"></param>
+    public void TakeDamages(int damages)
+    {
+        if(Health > damages)
+        {
+            Health -= damages;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    /// <summary>
+    /// Appel fonction TakeDamages de MainCharacterScript + envoie dégats de l'objet
+    /// </summary>
+    public void Attack()
+    {
+        MainCharacterScript personnage = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharacterScript>();
+        personnage.TakeDamages(Damages);
+    }
+    #endregion
 }
 #endregion
 

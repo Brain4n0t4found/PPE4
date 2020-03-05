@@ -94,6 +94,21 @@ public class MainCharacterScript : MonoBehaviour
             ? false  // Si le personnage est affecté par l'état "fatigué"
             : true;  // Sinon
     }
+
+    /// <summary>
+    /// Modifie la propriété Health par rapport à la valeur damages
+    /// </summary>
+    public void TakeDamages(int damages)
+    {
+        if (Health > damages)
+        {
+            Health -= damages;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     #endregion
 }
 #endregion
