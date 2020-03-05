@@ -1,4 +1,4 @@
-﻿// Using System
+// Using System
 using System.Linq;
 using System.Collections.Generic;
 
@@ -15,7 +15,6 @@ public class ObjectFactory : MonoBehaviour
     public GameObject FloorPreFab;
     public GameObject WeaponPreFab;
     public GameObject ContainerPreFab;
-    public GetDataFromJson GetDataFromJsonScript;
 
     private static MainCharacterScript mainCharacter;
     #endregion
@@ -120,7 +119,7 @@ public class ObjectFactory : MonoBehaviour
     public static EquipmentObjectClass CreateEquipmentObject(string name)
     {
         EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
-        equipmentObject.Initialize(name, mainCharacter.gameObject);
+        equipmentObject.Initialize(name, mainCharacter);
         return equipmentObject;
     }
 

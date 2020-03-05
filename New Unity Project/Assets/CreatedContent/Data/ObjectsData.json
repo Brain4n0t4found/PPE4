@@ -109,55 +109,76 @@
 	],
 	"items": [
 		{
-			"Name": "Cannette"
+			"Name": "Cannette",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Barre de chocolat"
+			"Name": "Barre de chocolat",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Bouteille d'eau"
+			"Name": "Bouteille d'eau",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Boisson énergisante"
+			"Name": "Boisson énergisante",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Munitions de fusil à pompe"
+			"Name": "Munitions de pistolet",
+			"Type": "Munition"
 		},
 		{
-			"Name": "Munitions de fusil d'assaut"
+			"Name": "Munitions de fusil à pompe",
+			"Type": "Munition"
 		},
 		{
-			"Name": "Munitions de sniper"
+			"Name": "Munitions de fusil d'assaut",
+			"Type": "Munition"
 		},
 		{
-			"Name": "Carburant pour lance-flamme"
+			"Name": "Munitions de sniper",
+			"Type": "Munition"
 		},
 		{
-			"Name": "Clé"
+			"Name": "Carburant pour lance-flamme",
+			"Type": "Munition"
 		},
 		{
-			"Name": "Paracétamol"
+			"Name": "Clé",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Antibactérien"
+			"Name": "Paracétamol",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Antidote"
+			"Name": "Antibactérien",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Casque"
+			"Name": "Antidote",
+			"Type": "Consommable"
 		},
 		{
-			"Name": "Plastron"
+			"Name": "Casque",
+			"Type": "Armure"
 		},
 		{
-			"Name": "Jambières"
+			"Name": "Plastron",
+			"Type": "Armure"
 		},
 		{
-			"Name": "Bottes"
+			"Name": "Jambières",
+			"Type": "Armure"
 		},
 		{
-			"Name": "Cadenas"
+			"Name": "Bottes",
+			"Type": "Armure"
+		},
+		{
+			"Name": "Cadenas",
+			"Type": "Consommable"
 		}
 	],
 	"monsters": [

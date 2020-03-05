@@ -1,6 +1,7 @@
 ﻿// Using System
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 
 // Using packages
 using Newtonsoft.Json;
@@ -8,10 +9,10 @@ using Newtonsoft.Json.Linq;
 
 using UnityEngine;
 
-public class GetDataFromJson
+public static class GetDataFromJson
 {
     #region properties
-    private string JsonContent { get; set; }
+    private static string JsonContent { get; set; }
 
     #region Listes de modeles avec les valeurs du JSON
     public static List<BuildingModel> buildingModelsList { get; set; }
@@ -22,22 +23,16 @@ public class GetDataFromJson
     public static List<StateModel> stateModelsList { get; set; }
     public static List<WeaponModel> weaponModelsList { get; set; }
     public static List<EnemyModel> bossModelsList { get; set; }
+    public static List<string> existingObjectsName { get; set; }
     #endregion
 
-    #endregion
-
-    #region Constructor
-    public GetDataFromJson()
-    {
-        setJsonContent();
-    }
     #endregion
 
     #region Functions
     /// <summary>
     /// Attribution des ressources JSON
     /// </summary>
-    public void setJsonContent()
+    public static void setClassContent()
     {
         // Crée un reader à partir du chemin vers le fichier de ressources du projet
         StreamReader jsonReader = new StreamReader(JsonPathes.PathToJsonData);
@@ -45,6 +40,7 @@ public class GetDataFromJson
         // Applique le contenu du reader à JsonContent
         JsonContent = jsonReader.ReadToEnd();
 
+        // Remplit les liste de models
         buildingModelsList = SearchDataFromJsonRessources<BuildingModel>(JsonPathes.BuildingsPath);
         containerModelsList = SearchDataFromJsonRessources<ContainerModel>(JsonPathes.FurnituresPath);
         enemyModelsList = SearchDataFromJsonRessources<EnemyModel>(JsonPathes.MonstersPath);
@@ -53,6 +49,16 @@ public class GetDataFromJson
         stateModelsList = SearchDataFromJsonRessources<StateModel>(JsonPathes.StatusPath);
         weaponModelsList = SearchDataFromJsonRessources<WeaponModel>(JsonPathes.WeaponsPath);
         bossModelsList = SearchDataFromJsonRessources<EnemyModel>(JsonPathes.BossesPath);
+
+        // Remplit la liste de noms d'objets
+        existingObjectsName = new List<string>();
+        foreach(EquipmentObjectModel obj in equipmentObjectModelsList)
+        {
+            if (!existingObjectsName.Any(existObjName => existObjName == obj.Name))
+            {
+                existingObjectsName.Add(obj.Name);
+            }
+        }
     }
 
     /// <summary>
@@ -61,7 +67,7 @@ public class GetDataFromJson
     /// <typeparam name="T"></typeparam>
     /// <param name="valueToSearch"></param>
     /// <returns>List<typeparamref name="T"/></returns>
-    private List<T> SearchDataFromJsonRessources<T>(string valueToSearch)
+    private static List<T> SearchDataFromJsonRessources<T>(string valueToSearch)
     {
         // Récupère les données du fichier JSON dans un objet JSON
         JObject jObject = JObject.Parse(JsonContent);

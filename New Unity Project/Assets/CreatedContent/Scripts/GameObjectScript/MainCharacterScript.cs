@@ -13,6 +13,7 @@ public class MainCharacterScript : MonoBehaviour
     public string Name { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
+    public double DamageReductionPercentage { get; set; }
     public WeaponScript EquippedWeapon { get; set; }
 
     public List<EquipmentObjectClass> EquipmentObjects { get; set; }
@@ -26,6 +27,7 @@ public class MainCharacterScript : MonoBehaviour
         Name = name;
         Health = health;
         EnergyAmount = energyAmount;
+        ArmorPercentage = 0;
 
         EquipmentObjects = new List<EquipmentObjectClass>();
         CharacterStates = new List<StateClass>();
@@ -84,15 +86,12 @@ public class MainCharacterScript : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Renvoie un booléen selon si le personnage est fatigué ou non
-    /// </summary>
-    /// <returns>Boolean</returns>
-    public bool CanDoAction()
+    public void ConsumeObject(EquipmentObjectModel objectToSearch)
     {
-        return CharacterStates.Any(stat => stat.Name == "Fatigué") 
-            ? false  // Si le personnage est affecté par l'état "fatigué"
-            : true;  // Sinon
+        if (EquipmentObjects.Any(obj => obj.Name == objectToSearch.Name))
+        {
+            
+        }
     }
 
     /// <summary>
