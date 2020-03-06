@@ -24,9 +24,6 @@ public class ObjectFactory : MonoBehaviour
     {
         Instance = this;
 
-        // Création de l'objet de récupération JSON
-        GetDataFromJsonScript = new GetDataFromJson();
-
         BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
 
         CreateBuilding(buildingModel.Name, buildingModel.FloorsNumber);
@@ -116,10 +113,10 @@ public class ObjectFactory : MonoBehaviour
     /// </summary>
     /// <param name="name"></param>
     /// <returns>Objet C# EquipmentObjectClass</returns>
-    public static EquipmentObjectClass CreateEquipmentObject(string name)
+    public static EquipmentObjectClass CreateEquipmentObject(string name, string type)
     {
         EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
-        equipmentObject.Initialize(name, mainCharacter);
+        equipmentObject.Initialize(name, mainCharacter, type);
         return equipmentObject;
     }
 

@@ -8,6 +8,7 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     #region Properties
+    public string Id { get; set; }
     public string Name { get; set; }
     public int Damages { get; set; }
     public int MunitionAmount { get; set; }
@@ -18,13 +19,14 @@ public class WeaponScript : MonoBehaviour
     #endregion
 
     #region Constructor
-    public void Initialize(string name, int damages, int munitionsAmount, int chargerLength, int chargerMunitionAmout)
+    public void Initialize(string name, int damages, int munitionsAmount, int chargerLength, int chargerMunitionAmout, string id)
     {
         this.Name = name;
         this.Damages = damages;
         this.MunitionAmount = munitionsAmount;
         this.ChargerLength = chargerLength;
         this.ChargerMunitionAmout = chargerMunitionAmout;
+        this.Id = id;
     }
     #endregion
 
@@ -60,6 +62,7 @@ public class WeaponScript : MonoBehaviour
 public class WeaponModel
 {
     #region Properties
+    public string Id { get; set; }
     public string Name { get; set; }
     public int Damages { get; set; }
     public int MunitionAmount { get; set; }
@@ -69,13 +72,14 @@ public class WeaponModel
 
     #region Constructors
     public WeaponModel() { }
-    public WeaponModel(string name, int damages, int munitionAmount, int chargerLength, int chargerMunitionAmout)
+    public WeaponModel(string name, int damages, int munitionAmount, int chargerLength, int chargerMunitionAmout, string id)
     {
         this.Name = name;
         this.Damages = damages;
         this.MunitionAmount = munitionAmount;
         this.ChargerLength = chargerLength;
         this.ChargerMunitionAmout = chargerMunitionAmout;
+        this.Id = id;
     }
     #endregion
 }

@@ -70,7 +70,7 @@ public class MainCharacterScript : MonoBehaviour
     public bool TryUseKey()
     {
         // Tentative de récupération d'une clé dans la liste d'objets du personnage
-        FinalEquipmentObjectClass potentialKey = EquipmentObjects.Any(obj => obj.Name == "Key")
+        EquipmentObjectClass potentialKey = EquipmentObjects.Any(obj => obj.Name == "Key")
             ? EquipmentObjects.Where(obj => obj.Name == "Key").First()
             : null;
 
