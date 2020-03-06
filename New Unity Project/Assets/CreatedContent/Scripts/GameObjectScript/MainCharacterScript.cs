@@ -27,7 +27,7 @@ public class MainCharacterScript : MonoBehaviour
         Name = name;
         Health = health;
         EnergyAmount = energyAmount;
-        ArmorPercentage = 0;
+        //ArmorPercentage = 0;
 
         EquipmentObjects = new List<EquipmentObjectClass>();
         CharacterStates = new List<StateClass>();
@@ -70,10 +70,10 @@ public class MainCharacterScript : MonoBehaviour
     public bool TryUseKey()
     {
         // Tentative de récupération d'une clé dans la liste d'objets du personnage
-        EquipmentObjectClass potentialKey = EquipmentObjects.Any(obj => obj.Name == "Key")
+        FinalEquipmentObjectClass potentialKey = EquipmentObjects.Any(obj => obj.Name == "Key")
             ? EquipmentObjects.Where(obj => obj.Name == "Key").First()
             : null;
-        
+
         if (potentialKey != null)
         {
             // Si le personnage possède une clé
@@ -90,7 +90,7 @@ public class MainCharacterScript : MonoBehaviour
     {
         if (EquipmentObjects.Any(obj => obj.Name == objectToSearch.Name))
         {
-            
+
         }
     }
 
