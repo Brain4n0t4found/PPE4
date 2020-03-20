@@ -50,6 +50,24 @@ public class ContainerScript : MonoBehaviour
         Weapon = null;
         return tmpWeapon;
     }
+
+    /// <summary>
+    /// Extraction d'item du conteneur
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public EquipmentObjectClass ExtractItemFromContainer(string name)
+    {
+        
+
+        int index = ListEquipmentObjects.FindIndex(equipmentObject => equipmentObject.Name == name);
+
+        EquipmentObjectClass tmpEquipmentObject = ListEquipmentObjects[index];
+
+        ListEquipmentObjects.RemoveAt(index);
+
+        return tmpEquipmentObject;
+    }
     #endregion
 }
 #endregion
