@@ -12,14 +12,17 @@ public class EquipmentObjectClass
     #region Properties
     public string Name { get; set; }
     public string Type { get; set; }
+    public string Id { get; set; }
+    public int Gain { get; set; }
     protected MainCharacterScript Character { get; set; }
     #endregion
 
     #region Constructor
-    public void Initialize(string name, MainCharacterScript mainCharacter, string type)
+    public void Initialize(string name, MainCharacterScript mainCharacter, string type, string id)
     {
         this.Name = name;
         this.Type = type;
+        this.Id = id;
 
         if (mainCharacter != null)
         {
@@ -62,27 +65,55 @@ public class EquipmentObjectClass
                     ? this.Character.DamageReductionPercentage + 0.15
                     : 0.9;
                 break;
+
+            case "Consommable":
+                // Récupération de la quantité de boost de stat du personnage que procure le consommable
+                ConsommableGainStatsModel gainStatsModel = GetDataFromJson.consommableGainStatsModelsList.SingleOrDefault(gainStat => gainStat.Id == this.Id);
+
+                // Attribution 
+                Gain = gainStatsModel.Gain;
+                break;
         }
     }
     #endregion
 }
 #endregion
 
-#region Classe modèle
+#region Classes modèles
 [Serializable]
 public class EquipmentObjectModel
 {
     #region Properties
     public string Name { get; set; }
     public string Type { get; set; }
+    public string Id { get; set; }
     #endregion
 
     #region Constructors
     public EquipmentObjectModel() { }
-    public EquipmentObjectModel(string name, string type)
+    public EquipmentObjectModel(string name, string type, string id)
     {
         this.Name = name;
         this.Type = type;
+        this.Id = id;
+    }
+    #endregion
+}
+
+[Serializable]
+public class ConsommableGainStatsModel
+{
+    #region Properties
+    public string Id { get; set; }
+    public int Gain { get; set; }
+    #endregion
+
+    #region Constructor
+    public ConsommableGainStatsModel() { }
+    public ConsommableGainStatsModel(string id, int gain)
+    {
+        this.Id = id;
+        this.Gain = gain;
     }
     #endregion
 }

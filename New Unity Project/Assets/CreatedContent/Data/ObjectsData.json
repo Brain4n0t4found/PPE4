@@ -113,98 +113,103 @@
 			"ChargerMunitionAmout": 120
 		}
 	],
-	"items": [
-		{
-			"Id" :  "Can",
-			"Name": "Cannette",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "Chocolate",
-			"Name": "Barre de chocolat",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "WaterBottle",
-			"Name": "Bouteille d'eau",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "EnergyDrink",
-			"Name": "Boisson énergisante",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "AmmoPistol",
-			"Name": "Munitions de pistolet",
-			"Type": "Munition"
-		},
-		{
-			"Id": "AmmoShotgun",
-			"Name": "Munitions de fusil à pompe",
-			"Type": "Munition"
-		},
-		{
-			"Id": "AmmoAssaultRifle",
-			"Name": "Munitions de fusil d'assaut",
-			"Type": "Munition"
-		},
-		{
-			"Id": "AmmoSniper",
-			"Name": "Munitions de sniper",
-			"Type": "Munition"
-		},
-		{
-			"Id": "AmmoFlameThrower",
-			"Name": "Carburant pour lance-flamme",
-			"Type": "Munition"
-		},
-		{
-			"Id": "Key",
-			"Name": "Clé",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "Paracetamol",
-			"Name": "Paracétamol",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "AntiBacterial",
-			"Name": "Antibactérien",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "Antidote",
-			"Name": "Antidote",
-			"Type": "Consommable"
-		},
-		{
-			"Id": "ArmorHelmet",
-			"Name": "Casque",
-			"Type": "Armure"
-		},
-		{
-			"Id": "ArmorChestPlate",
-			"Name": "Plastron",
-			"Type": "Armure"
-		},
-		{
-			"Id": "ArmorLeggings",
-			"Name": "Jambières",
-			"Type": "Armure"
-		},
-		{
-			"Id": "ArmorBoots",
-			"Name": "Bottes",
-			"Type": "Armure"
-		},
-		{
-			"Id": "Locker",
-			"Name": "Cadenas",
-			"Type": "Consommable"
-		}
-	],
+    "items": [
+        {
+            "Id": "Can",
+            "Name": "Cannette",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "TinCan",
+            "Name": "Boîte de conserve",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "Chocolate",
+            "Name": "Barre de chocolat",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "WaterBottle",
+            "Name": "Bouteille d'eau",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "EnergyDrink",
+            "Name": "Boisson énergisante",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "AmmoPistol",
+            "Name": "Munitions de pistolet",
+            "Type": "Munition"
+        },
+        {
+            "Id": "AmmoShotgun",
+            "Name": "Munitions de fusil à pompe",
+            "Type": "Munition"
+        },
+        {
+            "Id": "AmmoAssaultRifle",
+            "Name": "Munitions de fusil d'assaut",
+            "Type": "Munition"
+        },
+        {
+            "Id": "AmmoSniper",
+            "Name": "Munitions de sniper",
+            "Type": "Munition"
+        },
+        {
+            "Id": "AmmoFlameThrower",
+            "Name": "Carburant pour lance-flamme",
+            "Type": "Munition"
+        },
+        {
+            "Id": "Key",
+            "Name": "Clé",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "Paracetamol",
+            "Name": "Paracétamol",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "AntiBacterial",
+            "Name": "Antibactérien",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "Antidote",
+            "Name": "Antidote",
+            "Type": "Consommable"
+        },
+        {
+            "Id": "ArmorHelmet",
+            "Name": "Casque",
+            "Type": "Armure"
+        },
+        {
+            "Id": "ArmorChestPlate",
+            "Name": "Plastron",
+            "Type": "Armure"
+        },
+        {
+            "Id": "ArmorLeggings",
+            "Name": "Jambières",
+            "Type": "Armure"
+        },
+        {
+            "Id": "ArmorBoots",
+            "Name": "Bottes",
+            "Type": "Armure"
+        },
+        {
+            "Id": "Locker",
+            "Name": "Cadenas",
+            "Type": "Consommable"
+        }
+    ],
 	"monsters": [
 		{
 			"Name": "Zombie",
@@ -254,26 +259,48 @@
 			"Damages": 30
 		}
 	],
-	"status": [
-		{
-			"Name": "Empoisonné",
-			"DamageRate": 2
-		},
-		{
-			"Name": "Douleur crânienne",
-			"DamageRate": 1
-		},
-		{
-			"Name": "Infecté",
-			"DamageRate": 2
-		},
-		{
-			"Name": "Fatigué",
-			"DamageRate": 1
-		},
-		{
-			"Name": "Brûlé",
-			"DamageRate": 5
-		}
-	]
+    "status": [
+        {
+            "Name": "Empoisonné",
+            "DamageRate": 2
+        },
+        {
+            "Name": "Douleur crânienne",
+            "DamageRate": 1
+        },
+        {
+            "Name": "Infecté",
+            "DamageRate": 2
+        },
+        {
+            "Name": "Fatigué",
+            "DamageRate": 1
+        },
+        {
+            "Name": "Brûlé",
+            "DamageRate": 5
+        }
+    ],
+    "consommableGainStats": [
+        {
+            "Id": "Can",
+            "Gain": 5
+        },
+        {
+            "Id": "Chocolate",
+            "Gain": 15
+        },
+        {
+            "Id": "WaterBottle",
+            "Gain": 10
+        },
+        {
+            "Id": "TinCan",
+            "Gain": 30
+        },
+        {
+            "Id": "EnergyDrink",
+            "Gain": 3
+        }
+    ]
 }

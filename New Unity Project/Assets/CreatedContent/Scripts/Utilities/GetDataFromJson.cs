@@ -7,8 +7,6 @@ using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-using UnityEngine;
-
 public static class GetDataFromJson
 {
     #region properties
@@ -23,6 +21,7 @@ public static class GetDataFromJson
     public static List<StateModel> stateModelsList { get; set; }
     public static List<WeaponModel> weaponModelsList { get; set; }
     public static List<EnemyModel> bossModelsList { get; set; }
+    public static List<ConsommableGainStatsModel> consommableGainStatsModelsList { get; set; }
     public static List<string> existingObjectsName { get; set; }
     #endregion
 
@@ -49,6 +48,7 @@ public static class GetDataFromJson
         stateModelsList = SearchDataFromJsonRessources<StateModel>(JsonPathes.StatusPath);
         weaponModelsList = SearchDataFromJsonRessources<WeaponModel>(JsonPathes.WeaponsPath);
         bossModelsList = SearchDataFromJsonRessources<EnemyModel>(JsonPathes.BossesPath);
+        consommableGainStatsModelsList = SearchDataFromJsonRessources<ConsommableGainStatsModel>(JsonPathes.ConsommableGainStatsPath);
 
         // Remplit la liste de noms d'objets
         existingObjectsName = new List<string>();
@@ -93,5 +93,6 @@ public static class JsonPathes
     public static readonly string MonstersPath = "monsters";
     public static readonly string BossesPath = "bosses";
     public static readonly string StatusPath = "status";
+    public static readonly string ConsommableGainStatsPath = "consommableGainStats";
     #endregion
 }

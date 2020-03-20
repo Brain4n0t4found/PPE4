@@ -22,16 +22,35 @@ public class ObjectFactory : MonoBehaviour
     #region Unity Functions
     void Start()
     {
+        #region À GARDER
         Instance = this;
 
-        BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
+        GetDataFromJson.setClassContent();
+        #endregion
+
+        /*BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
 
         CreateBuilding(buildingModel.Name, buildingModel.FloorsNumber);
 
         BuildingScript building = GameObject.FindGameObjectWithTag("Building").GetComponent<BuildingScript>();
         GameObject[] listFloors = GameObject.FindGameObjectsWithTag("Floor");
         GameObject[] listEnemy = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] listContainers = GameObject.FindGameObjectsWithTag("Container");
+        GameObject[] listContainers = GameObject.FindGameObjectsWithTag("Container");*/
+
+        MainCharacterModel characterModel = GetDataFromJson.mainCharacterModelsList.Single(c => c.Name == "John");
+        mainCharacter = CreateCharacter(characterModel.Name, characterModel.Health, characterModel.EnergyAmount);
+
+        EquipmentObjectModel equipmentObject = GetDataFromJson.equipmentObjectModelsList.Single(equipObj => equipObj.Id == "TinCan");
+        EquipmentObjectClass equipmentObjectClass = CreateEquipmentObject(equipmentObject.Name, equipmentObject.Type, equipmentObject.Id);
+
+        equipmentObjectClass.AttachToCharacter(mainCharacter);
+
+        Debug.Log(mainCharacter.Health);
+        mainCharacter.TakeDamages(35);
+        Debug.Log(mainCharacter.Health);
+
+        mainCharacter.ConsumeObject(equipmentObject);
+        Debug.Log(mainCharacter.Health);
     }
 
     // Permet au gameObject de ne pas être détruit lors du changement de scènes
@@ -113,10 +132,10 @@ public class ObjectFactory : MonoBehaviour
     /// </summary>
     /// <param name="name"></param>
     /// <returns>Objet C# EquipmentObjectClass</returns>
-    public static EquipmentObjectClass CreateEquipmentObject(string name, string type)
+    public static EquipmentObjectClass CreateEquipmentObject(string name, string type, string id)
     {
         EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
-        equipmentObject.Initialize(name, mainCharacter, type);
+        equipmentObject.Initialize(name, mainCharacter, type, id);
         return equipmentObject;
     }
 

@@ -11,6 +11,7 @@ public class MainCharacterScript : MonoBehaviour
 {
     #region Properties
     public string Name { get; set; }
+    public int MaxHealth { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
     public double DamageReductionPercentage { get; set; }
@@ -26,8 +27,9 @@ public class MainCharacterScript : MonoBehaviour
     {
         Name = name;
         Health = health;
+        MaxHealth = health;
         EnergyAmount = energyAmount;
-        //ArmorPercentage = 0;
+        DamageReductionPercentage = 0;
 
         EquipmentObjects = new List<EquipmentObjectClass>();
         CharacterStates = new List<StateClass>();
@@ -88,15 +90,41 @@ public class MainCharacterScript : MonoBehaviour
 
     public void ConsumeObject(EquipmentObjectModel objectToSearch)
     {
-        if (EquipmentObjects.Any(obj => obj.Name == objectToSearch.Name))
+        // Si l'objet est bien un consommable
+        if (objectToSearch.Type == "Consommable")
         {
+            // Recherche dans la liste d'objets pour un qui a le même nom
+            if (EquipmentObjects.Any(obj => obj.Name == objectToSearch.Name))
+            {
+                // Récupération de l'objet
+                EquipmentObjectClass equipmentObject = EquipmentObjects.Where(obj => obj.Name == objectToSearch.Name).FirstOrDefault();
 
+                // Si elle a été faite avec succés
+                if (equipmentObject != null)
+                {
+                    // Différenciation de la boisson énergisante
+                    if (equipmentObject.Id != "EnergyDrink")
+                    {
+                        // Gain de vie de la quantité rendue par l'objet
+                        GainLife(equipmentObject.Gain);
+                    }
+                    else
+                    {
+                        // Perte de 1 ou 2 points de vie (aléatoire)
+                        TakeDamages(new System.Random().Next(1, 3));
+
+                        // Gain d'énergie rendue par l'objet
+                        EnergyAmount += equipmentObject.Gain;
+                    }
+                }
+            }
         }
     }
 
     /// <summary>
     /// Modifie la propriété Health par rapport à la valeur damages
     /// </summary>
+    /// <param name="damages"></param>
     public void TakeDamages(int damages)
     {
         if (Health > damages)
@@ -107,6 +135,15 @@ public class MainCharacterScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    /// <summary>
+    /// Modifie la propriété Health par rapport à la valeur gainValue
+    /// </summary>
+    /// <param name="gainValue"></param>
+    public void GainLife(int gainValue)
+    {
+        Health = (Health + gainValue) > MaxHealth ? MaxHealth : Health + gainValue; 
     }
     #endregion
 }
