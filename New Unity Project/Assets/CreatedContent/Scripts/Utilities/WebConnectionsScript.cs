@@ -5,11 +5,12 @@ using UnityEngine.Networking;
 
 public class WebConnectionsScript : MonoBehaviour
 {
-    void Start()
-    {
-        StartCoroutine(GetDBHighScores());
-    }
+    // Appel des fontions via "StartCoroutine(<fonction>)"
 
+    /// <summary>
+    /// Récupère les 10 meilleurs scores de la BDD
+    /// </summary>
+    /// <returns></returns>
     IEnumerator GetDBHighScores()
     {
         UnityWebRequest webRequest = UnityWebRequest.Get("https://portfolioks.fr/ConnexionToDB.php");
@@ -25,5 +26,14 @@ public class WebConnectionsScript : MonoBehaviour
             string scoresInformations = webRequest.downloadHandler.text;
             Debug.Log(scoresInformations);
         }
+    }
+
+    /// <summary>
+    /// Envoie le score à la BDD
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator PostDBScore()
+    {
+        yield return null;
     }
 }
