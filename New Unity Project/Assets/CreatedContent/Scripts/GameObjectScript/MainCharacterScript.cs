@@ -14,6 +14,15 @@ public class MainCharacterScript : MonoBehaviour
     public int MaxHealth { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
+    public Transform mainCharacter;
+    public int InitialisePosition { get; set; }
+    public int FinalPosition { get; set; }
+    public int InitialiseSize { get; set; }
+    public int FinalSize { get; set; }
+    public float startingDistFromBuilding;
+    public float differenceMinMaxSize;
+    public bool IsMoving = false;
+    public bool isTaking = false;
     public double DamageReductionPercentage { get; set; }
     public WeaponScript EquippedWeapon { get; set; }
 
@@ -42,6 +51,30 @@ public class MainCharacterScript : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void Start()
+    {
+        mainCharacter = GameObject.FindGameObjectWithTag("Character").GetComponent<Transform>();
+        Transform Building = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
+
+        startingDistFromBuilding = Math.Abs(mainCharacter.position.x - Building.position.x);
+        differenceMinMaxSize = Math.Abs(InitialiseSize - FinalSize);
+    }
+
+    public void Update()
+    {
+        Transform Building = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
+
+        if (IsMoving == true)
+        {
+            float dist = Math.Abs(mainCharacter.position.x - Building.position.x);
+            float movePercentageToDo = dist / startingDistFromBuilding;
+
+            //mainCharacter.localScale = new Vector3(InitialiseSize - (1 - movePercentageToDo) * differenceMinMaxSize, InitialiseSize - (1 - movePercentageToDo) * differenceMinMaxSize);
+
+            mainCharacter.position = new Vector3(mainCharacter.position.x + 0.1f, mainCharacter.position.y);
+        }
     }
     #endregion
 
@@ -134,6 +167,22 @@ public class MainCharacterScript : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+    
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Building")
+        {
+            IsMoving = false;
+            Destroy(collision.gameObject.GetComponent<BoxCollider2D>());
+
+            Transform mainObjectCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>();
+            Transform Floor = GameObject.FindGameObjectWithTag("Floor").GetComponent<Transform>();
+            mainCharacter.position = new Vector3(5f, 15f);
+            mainCharacter.rotation = Quaternion.Euler(0, 0, 0);
+            mainObjectCamera.position = new Vector3(9f, 17f, -1f);
+            //gameCamera.transform.position = Vector2.MoveTowards(transform.position, groundFloor.position, (100 * 100) * Time.deltaTime);
         }
     }
 
