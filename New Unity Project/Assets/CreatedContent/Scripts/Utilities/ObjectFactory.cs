@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 // Using Unity
 using UnityEngine;
+using System;
 
 public class ObjectFactory : MonoBehaviour
 {
@@ -28,14 +29,14 @@ public class ObjectFactory : MonoBehaviour
         GetDataFromJson.setClassContent();
         #endregion
 
-        /*BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
+        BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
 
         CreateBuilding(buildingModel.Name, buildingModel.FloorsNumber);
 
         BuildingScript building = GameObject.FindGameObjectWithTag("Building").GetComponent<BuildingScript>();
         GameObject[] listFloors = GameObject.FindGameObjectsWithTag("Floor");
         GameObject[] listEnemy = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] listContainers = GameObject.FindGameObjectsWithTag("Container");*/
+        GameObject[] listContainers = GameObject.FindGameObjectsWithTag("Container");
 
         MainCharacterModel characterModel = GetDataFromJson.mainCharacterModelsList.Single(c => c.Name == "John");
         mainCharacter = CreateCharacter(characterModel.Name, characterModel.Health, characterModel.EnergyAmount);
@@ -51,7 +52,9 @@ public class ObjectFactory : MonoBehaviour
 
         mainCharacter.ConsumeObject(equipmentObject);
         Debug.Log(mainCharacter.Health);
-    }
+
+       
+    } 
 
     // Permet au gameObject de ne pas être détruit lors du changement de scènes
     void Awake()
@@ -72,6 +75,7 @@ public class ObjectFactory : MonoBehaviour
     {
         EnemyScript enemy = Instantiate(Instance.EnemyPreFab, Vector3.zero, Quaternion.identity).GetComponent<EnemyScript>();
         enemy.Initialize(name, health, damages);
+        enemy.transform.position = new Vector3(10f, 15f, -1f);
         return enemy;
     }
 
@@ -86,6 +90,7 @@ public class ObjectFactory : MonoBehaviour
     {
         MainCharacterScript mainCharacter = Instantiate(Instance.MainCharacterPreFab, Vector3.zero, Quaternion.identity).GetComponent<MainCharacterScript>();
         mainCharacter.Initialize(name, health, energyAmount);
+        mainCharacter.transform.position = new Vector3(-5f, -2f);
         return mainCharacter;
     }
 
@@ -97,6 +102,7 @@ public class ObjectFactory : MonoBehaviour
     {
         BuildingScript building = Instantiate(Instance.BuildingPreFab, Vector3.zero, Quaternion.identity).GetComponent<BuildingScript>();
         building.Initialize(name, floorsNumber);
+        building.transform.position = new Vector3(3f, 1f);
         return building;
     }
 
@@ -109,6 +115,7 @@ public class ObjectFactory : MonoBehaviour
     {
         FloorScript floor = Instantiate(Instance.FloorPreFab, Vector3.zero, Quaternion.identity).GetComponent<FloorScript>();
         floor.Initialize(floorNumber, totalFloorsNumber);
+        floor.transform.position = new Vector3(3f, 15f);
         return floor;
     }
 
@@ -124,6 +131,7 @@ public class ObjectFactory : MonoBehaviour
     {
         ContainerScript container = Instantiate(Instance.ContainerPreFab, Vector3.zero, Quaternion.identity).GetComponent<ContainerScript>();
         container.Initialize(name, storageCapacity, listEquipmentObjects, weapon);
+        container.transform.position = new Vector3(12f, 16f);
         return container;
     }
 
