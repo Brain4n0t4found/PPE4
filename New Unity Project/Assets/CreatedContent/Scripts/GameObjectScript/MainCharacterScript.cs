@@ -2,33 +2,36 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 // Using Unity
 using UnityEngine;
+
+// Using Project
+using Assets.CreatedContent.Scripts.Utilities;
 
 #region Classe du gameObject
 public class MainCharacterScript : MonoBehaviour
 {
     #region Properties
+    public readonly float CharacterSpeed = 5f;
+
     public string Name { get; set; }
     public int MaxHealth { get; set; }
     public int Health { get; set; }
     public int EnergyAmount { get; set; }
-    public Transform mainCharacter;
-    public int InitialisePosition { get; set; }
-    public int FinalPosition { get; set; }
-    public int InitialiseSize { get; set; }
-    public int FinalSize { get; set; }
-    public float startingDistFromBuilding;
-    public float differenceMinMaxSize;
-    public bool IsMoving = false;
-    public bool isTaking = false;
+    public int BuildingFloorPosition { get; set; }
     public double DamageReductionPercentage { get; set; }
+    public bool IsFighting { get; set; }
     public WeaponScript EquippedWeapon { get; set; }
 
     public List<EquipmentObjectClass> EquipmentObjects { get; set; }
     public List<StateClass> CharacterStates { get; set; }
     public List<WeaponScript> WeaponList { get; set; }
+
+    private GameProgressScript GameProgressScript { get; set; }
+    private float XPositionTarget { get; set; }
+    private bool HasToMove { get; set; }
     #endregion
 
     #region Constructor
@@ -39,6 +42,8 @@ public class MainCharacterScript : MonoBehaviour
         MaxHealth = health;
         EnergyAmount = energyAmount;
         DamageReductionPercentage = 0;
+        BuildingFloorPosition = 0;
+        HasToMove = false;
 
         EquipmentObjects = new List<EquipmentObjectClass>();
         CharacterStates = new List<StateClass>();
@@ -53,27 +58,18 @@ public class MainCharacterScript : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void Start()
+    void Start()
     {
-        mainCharacter = GameObject.FindGameObjectWithTag("Character").GetComponent<Transform>();
-        Transform Building = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
-
-        startingDistFromBuilding = Math.Abs(mainCharacter.position.x - Building.position.x);
-        differenceMinMaxSize = Math.Abs(InitialiseSize - FinalSize);
+        // Récupération du script GameProgress
+        GameProgressScript = GameObject.FindGameObjectWithTag("GameProgress").GetComponent<GameProgressScript>();
     }
 
-    public void Update()
+    void Update()
     {
-        Transform Building = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
-
-        if (IsMoving == true)
+        if (HasToMove)
         {
-            float dist = Math.Abs(mainCharacter.position.x - Building.position.x);
-            float movePercentageToDo = dist / startingDistFromBuilding;
-
-            //mainCharacter.localScale = new Vector3(InitialiseSize - (1 - movePercentageToDo) * differenceMinMaxSize, InitialiseSize - (1 - movePercentageToDo) * differenceMinMaxSize);
-
-            mainCharacter.position = new Vector3(mainCharacter.position.x + 0.1f, mainCharacter.position.y);
+            // Déplacement du personnage vers sa cible
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(XPositionTarget, transform.position.y), CharacterSpeed * Time.deltaTime); 
         }
     }
     #endregion
@@ -121,6 +117,10 @@ public class MainCharacterScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Consommation d'un objet et regain de PV / Énergie
+    /// </summary>
+    /// <param name="objectToSearch"></param>
     public void ConsumeObject(EquipmentObjectModel objectToSearch)
     {
         // Si l'objet est bien un consommable
@@ -193,6 +193,37 @@ public class MainCharacterScript : MonoBehaviour
     public void GainLife(int gainValue)
     {
         Health = (Health + gainValue) > MaxHealth ? MaxHealth : Health + gainValue; 
+    }
+
+    /// <summary>
+    /// Définit une position vers laquelle le personnage doit se déplacer
+    /// </summary>
+    /// <param name="xPosition"></param>
+    public void MoveToPosition(float xPosition)
+    {
+        XPositionTarget = xPosition;
+        HasToMove = true;
+    }
+
+    /// <summary>
+    /// Prépare les variables du script pour l'entrée dans un nouveau bâtiment + tp le personnage
+    /// </summary>
+    public void EnterBuilding()
+    {
+        BuildingFloorPosition = 0;
+        IsFighting = true;
+
+        //TP le personnage
+    }
+    #endregion
+
+    #region Events
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Building")
+        {
+            HasToMove = false;
+        }
     }
     #endregion
 }

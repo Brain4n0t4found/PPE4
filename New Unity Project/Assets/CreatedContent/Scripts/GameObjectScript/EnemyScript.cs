@@ -22,7 +22,7 @@ public class EnemyScript : MonoBehaviour
     }
     #endregion
 
-    #region Function
+    #region Functions
     /// <summary>
     /// Modifie la propriété Health par rapport à la valeur damages
     /// </summary>
@@ -35,6 +35,7 @@ public class EnemyScript : MonoBehaviour
         }
         else
         {
+            GameObject.FindGameObjectWithTag("Character").GetComponent<MainCharacterScript>().IsFighting = false;
             Destroy(gameObject);
         }
     }

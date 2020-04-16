@@ -6,6 +6,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+// Using Project
+using Assets.CreatedContent.Scripts.Utilities;
+
 public class ObjectFactory : MonoBehaviour
 {
     #region Properties
@@ -17,7 +20,9 @@ public class ObjectFactory : MonoBehaviour
     public GameObject WeaponPreFab;
     public GameObject ContainerPreFab;
 
-    private static MainCharacterScript mainCharacter;
+    private GameProgressScript GameProgressScript;
+
+    private static MainCharacterScript MainCharacter;
     #endregion
 
     #region Unity Functions
@@ -27,31 +32,11 @@ public class ObjectFactory : MonoBehaviour
         Instance = this;
 
         GetDataFromJson.setClassContent();
+
+        // Lancement de la génération de la première scène
+        GameProgressScript = GameObject.FindGameObjectWithTag("GameProgress").GetComponent<GameProgressScript>();
         #endregion
-
-        BuildingModel buildingModel = GetDataFromJson.buildingModelsList.Single(build => build.Name == "Commissariat");
-
-        CreateBuilding(buildingModel.Name, buildingModel.FloorsNumber);
-
-        BuildingScript building = GameObject.FindGameObjectWithTag("Building").GetComponent<BuildingScript>();
-        GameObject[] listFloors = GameObject.FindGameObjectsWithTag("Floor");
-        GameObject[] listEnemy = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] listContainers = GameObject.FindGameObjectsWithTag("Container");
-
-        MainCharacterModel characterModel = GetDataFromJson.mainCharacterModelsList.Single(c => c.Name == "John");
-        mainCharacter = CreateCharacter(characterModel.Name, characterModel.Health, characterModel.EnergyAmount);
-
-        EquipmentObjectModel equipmentObject = GetDataFromJson.equipmentObjectModelsList.Single(equipObj => equipObj.Id == "TinCan");
-        EquipmentObjectClass equipmentObjectClass = CreateEquipmentObject(equipmentObject.Name, equipmentObject.Type, equipmentObject.Id);
-
-        equipmentObjectClass.AttachToCharacter(mainCharacter);
-
-        Debug.Log(mainCharacter.Health);
-        mainCharacter.TakeDamages(35);
-        Debug.Log(mainCharacter.Health);
-
-        mainCharacter.ConsumeObject(equipmentObject);
-        Debug.Log(mainCharacter.Health);
+    }
 
        
     } 
@@ -90,7 +75,7 @@ public class ObjectFactory : MonoBehaviour
     {
         MainCharacterScript mainCharacter = Instantiate(Instance.MainCharacterPreFab, Vector3.zero, Quaternion.identity).GetComponent<MainCharacterScript>();
         mainCharacter.Initialize(name, health, energyAmount);
-        mainCharacter.transform.position = new Vector3(-5f, -2f);
+        MainCharacter = mainCharacter;
         return mainCharacter;
     }
 
@@ -113,7 +98,7 @@ public class ObjectFactory : MonoBehaviour
     /// <returns>Script du Floor créé</returns>
     public static FloorScript CreateFloor(int floorNumber, int totalFloorsNumber)
     {
-        FloorScript floor = Instantiate(Instance.FloorPreFab, Vector3.zero, Quaternion.identity).GetComponent<FloorScript>();
+        FloorScript floor = Instantiate(Instance.FloorPreFab, new Vector3(0, 10f + floorNumber * 10f, 0), Quaternion.identity).GetComponent<FloorScript>();
         floor.Initialize(floorNumber, totalFloorsNumber);
         floor.transform.position = new Vector3(3f, 15f);
         return floor;
@@ -143,7 +128,7 @@ public class ObjectFactory : MonoBehaviour
     public static EquipmentObjectClass CreateEquipmentObject(string name, string type, string id)
     {
         EquipmentObjectClass equipmentObject = new EquipmentObjectClass();
-        equipmentObject.Initialize(name, mainCharacter, type, id);
+        equipmentObject.Initialize(name, MainCharacter, type, id);
         return equipmentObject;
     }
 

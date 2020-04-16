@@ -25,7 +25,7 @@ public class WebConnectionsScript : MonoBehaviour
 
     public void Start()
     {
-        RequestDBHighScores();
+        
     }
 
     #region Functions

@@ -10,6 +10,7 @@ TagManager:
   - Floor
   - Character
   - Weapon
+  - GameProgress
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2331902653
+    locked: 0
+  - name: Element
+    uniqueID: 412439319
+    locked: 0
+  - name: Enemy
+    uniqueID: 3317442785
+    locked: 0
+  - name: Character
+    uniqueID: 1017106447
     locked: 0

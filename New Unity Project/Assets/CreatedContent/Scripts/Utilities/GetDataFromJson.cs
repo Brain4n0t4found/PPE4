@@ -6,6 +6,7 @@ using System.Linq;
 // Using packages
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 
 public static class GetDataFromJson
 {
@@ -33,11 +34,8 @@ public static class GetDataFromJson
     /// </summary>
     public static void setClassContent()
     {
-        // Crée un reader à partir du chemin vers le fichier de ressources du projet
-        StreamReader jsonReader = new StreamReader(JsonPathes.PathToJsonData);
-
-        // Applique le contenu du reader à JsonContent
-        JsonContent = jsonReader.ReadToEnd();
+        // Récupère les ressources à partir du chemin vers le fichier de ressources du projet
+        JsonContent = Resources.Load(JsonPathes.PathToJsonData).ToString();
 
         // Remplit les liste de models
         buildingModelsList = SearchDataFromJsonRessources<BuildingModel>(JsonPathes.BuildingsPath);
@@ -81,7 +79,7 @@ public static class GetDataFromJson
 public static class JsonPathes
 {
     #region Chemin vers le fichier
-    public static readonly string PathToJsonData = "Assets/CreatedContent/Data/ObjectsData.json";
+    public static readonly string PathToJsonData = "Data\\ObjectsData";
     #endregion
 
     #region Chemin dans le JSON vers les différents éléments
